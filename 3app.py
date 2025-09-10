@@ -5,9 +5,11 @@ from email.mime.text import MIMEText
 from datetime import datetime
 
 # --- Gmail Config ---
-EMAIL_SENDER = "meshmuth18@gmail.com"
-EMAIL_PASSWORD = "ybvtflhdkccpblv"   # Your Google App Password (no spaces)
-EMAIL_RECEIVER = "meshmuth18@gmail.com"
+# --- Gmail Config ---
+EMAIL_SENDER = "muthwiimeshack@gmail.com"
+EMAIL_PASSWORD = "rkubtmzydtgymkrf"   # your 16-character app password (no spaces)
+EMAIL_RECEIVER = "muthwiimeshack@gmail.com"  # you can also send to another email if you want
+
 
 st.set_page_config(page_title="Thrive Mental Wellness – Client Questionnaire", layout="centered")
 
