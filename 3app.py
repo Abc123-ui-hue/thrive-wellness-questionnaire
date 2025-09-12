@@ -10,7 +10,7 @@ st.set_page_config(
 # --- Custom CSS for Styling ---
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     
     html, body, [class*="st-emotion-cache"] {
         font-family: 'Inter', sans-serif;
@@ -33,9 +33,10 @@ st.markdown("""
         z-index: 100;
     }
     .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1a237e;
+        font-size: 2.5rem; /* Increased size */
+        font-weight: 800; /* Bolder font weight */
+        color: #4f46e5; /* New color */
+        text-decoration: none;
     }
     .nav-links {
         display: flex;
@@ -61,7 +62,7 @@ st.markdown("""
         overflow: hidden;
     }
     .hero-title {
-        font-size: 3rem;
+        font-size: 4rem; /* Increased size */
         font-weight: 700;
         color: #1a237e;
         margin-bottom: 0.5rem;
