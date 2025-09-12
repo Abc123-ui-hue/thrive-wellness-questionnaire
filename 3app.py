@@ -28,30 +28,30 @@ st.markdown("""
 
     /* General text and heading colors */
     h1, h2, h3, h4 {
-        color: #2D3748; /* Dark, professional color */
+        color: #004488; /* Dark professional blue */
         font-weight: 700;
     }
     p, li {
-        color: #4A5568; /* Slightly lighter for body text */
+        color: #333333; /* Dark gray for body text */
     }
 
     /* Button styling for a modern, rounded look */
     .stButton > button {
-        background-color: #4299E1; /* A friendly, professional blue */
+        background-color: #007BFF; /* A friendly, professional blue */
         color: white;
         font-weight: 600;
         border: none;
-        border-radius: 9999px; /* Pill shape */
+        border-radius: 8px; /* Slightly rounded */
         padding: 0.75rem 1.5rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.2s ease-in-out;
     }
     .stButton > button:hover {
-        background-color: #2B6CB0; /* Darker blue on hover */
+        background-color: #0056b3; /* Darker blue on hover */
         transform: translateY(-2px);
     }
     
-    /* Hero Section styling with one column */
+    /* Hero Section styling with a clean, centered look */
     .hero-container {
         display: flex;
         flex-direction: column;
@@ -67,12 +67,12 @@ st.markdown("""
     .hero-title {
         font-size: 3rem;
         margin-bottom: 0.5rem;
-        color: #2D3748;
+        color: #004488;
     }
     .hero-subtitle {
         font-size: 1.25rem;
         margin-bottom: 1.5rem;
-        color: #4A5568;
+        color: #333333;
     }
 
     /* Custom styling for cards */
