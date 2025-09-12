@@ -1,70 +1,81 @@
 import streamlit as st
+import base64
 
 # --- Helper functions for multi-page app ---
 def show_home_page():
-    # Top navigation bar (mimics the image layout)
-    col_nav_1, col_nav_2, col_nav_3, col_nav_4 = st.columns([1, 1, 1, 1])
-    with col_nav_2:
-        st.markdown("<p style='text-align: right; font-weight: bold;'>Home</p>", unsafe_allow_html=True)
-    with col_nav_3:
-        st.markdown("<p style='text-align: center; font-weight: bold;'>Login</p>", unsafe_allow_html=True)
-    with col_nav_4:
-        st.markdown("<p style='text-align: left; font-weight: bold;'>Register</p>", unsafe_allow_html=True)
+    # Top navigation bar
+    col_nav_spacer, col_nav_home, col_nav_login, col_nav_register = st.columns([2, 1, 1, 1])
+    with col_nav_home:
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Home</p>", unsafe_allow_html=True)
+    with col_nav_login:
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Login</p>", unsafe_allow_html=True)
+    with col_nav_register:
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Register</p>", unsafe_allow_html=True)
 
-    # Hero Section with Two Columns
+    # Hero Section with Two Columns and Image
     hero_container = st.container()
     with hero_container:
-        st.markdown(
-            f"""
-            <style>
-            .hero-container {{
-                background: linear-gradient(to right, #1a237e, #0d47a1);
-                color: white;
-                padding: 4rem 2rem;
-                border-radius: 12px;
-            }}
-            .hero-title {{
-                font-size: 3rem;
-                font-weight: bold;
-                line-height: 1.2;
-                margin-bottom: 0.5rem;
-                color: #B0C4DE;
-            }}
-            .hero-subtitle {{
-                font-size: 1.5rem;
-                color: #B0C4DE;
-                margin-bottom: 2rem;
-            }}
-            .book-button {{
-                background-color: #FFA500;
-                color: white;
-                font-weight: bold;
-                padding: 1rem 2rem;
-                border-radius: 8px;
-                text-decoration: none;
-                margin-right: 1rem;
-            }}
-            .contact-button {{
-                background-color: #2c3e50;
-                color: white;
-                font-weight: bold;
-                padding: 1rem 2rem;
-                border-radius: 8px;
-                text-decoration: none;
-            }}
-            </style>
-            <div class="hero-container">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
-                        <p class="hero-subtitle">Your mental wellness is our priority.</p>
-                        <a href="#" class="book-button">Book Appointment</a>
-                        <a href="#" class="contact-button">Contact Us</a>
-                    </div>
+        col_text, col_img = st.columns([2, 1])
+        with col_text:
+            st.markdown(
+                f"""
+                <style>
+                .hero-container {{
+                    background: linear-gradient(to right, #1a237e, #0d47a1);
+                    color: white;
+                    padding: 4rem 2rem;
+                    border-radius: 12px;
+                }}
+                .hero-title {{
+                    font-size: 3rem;
+                    font-weight: bold;
+                    line-height: 1.2;
+                    margin-bottom: 0.5rem;
+                    color: white;
+                }}
+                .hero-subtitle {{
+                    font-size: 1.5rem;
+                    color: white;
+                    margin-bottom: 2rem;
+                }}
+                .book-button, .contact-button {{
+                    background-color: #FFA500;
+                    color: white;
+                    font-weight: bold;
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    margin-right: 1rem;
+                }}
+                .contact-button {{
+                    background-color: #2c3e50;
+                }}
+                </style>
+                <div class="hero-container">
+                    <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
+                    <p class="hero-subtitle">Your mental wellness is our priority.</p>
+                    <a href="#" class="book-button">Book Appointment</a>
+                    <a href="#" class="contact-button">Contact Us</a>
                 </div>
-            </div>
-            """, unsafe_allow_html=True
-        )
+                """, unsafe_allow_html=True
+            )
+        with col_img:
+            st.markdown(
+                f"""
+                <style>
+                .img-container {{
+                    background: #2c3e50;
+                    padding: 1rem;
+                    border-radius: 12px;
+                    text-align: center;
+                }}
+                </style>
+                <div class="img-container">
+                    <img src="https://placehold.co/400x400/2c3e50/B8D8D3?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
+                    <p style="text-align: center; color: white; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
+                </div>
+                """, unsafe_allow_html=True
+            )
 
     # Three-Column Content Section
     st.markdown("---")
@@ -72,7 +83,7 @@ def show_home_page():
     
     with col1:
         st.header("Medication Management")
-        st.write("Psychotherapy")
+        st.markdown("<p style='color: #CCCCCC;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -156,12 +167,10 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p>
+    <p style='color: #B0C4DE;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
         <strong>Disclaimer:</strong> This website is for informational purposes only and does not provide medical advice.
         Always seek the advice of a qualified healthcare professional with any questions regarding a medical condition.
     </p>
-</div>
-""", unsafe_allow_html=True)
