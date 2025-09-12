@@ -3,182 +3,156 @@ import streamlit as st
 # Set the page configuration for a wide, clean layout
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide")
 
-# Custom CSS to match the exact design from the image
+# --- Custom CSS for a professional and modern look ---
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    /* Google Fonts Import for a clean, professional font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #F8F8F8;
+    html, body, [class*="st-emotion-cache"] {
+        font-family: 'Inter', sans-serif;
     }
-    
+
+    /* Full-page light blue background */
+    .stApp {
+        background-color: #F0F8FF; /* Light blue */
+    }
+
+    /* Main container styling to center content and add padding */
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
         padding-left: 5rem;
         padding-right: 5rem;
     }
-    
-    .st-emotion-cache-1f8p9w5, .st-emotion-cache-10qnf12, .st-emotion-cache-18ni7ap, .st-emotion-cache-q8s0x2, .st-emotion-cache-6q9sum, .st-emotion-cache-1cpx6h0 {
-        background-color: transparent;
-    }
 
+    /* General text and heading colors */
     h1, h2, h3, h4 {
-        color: #2F4F4F;
-        font-family: 'Roboto', sans-serif;
+        color: #2D3748; /* Dark, professional color */
         font-weight: 700;
     }
-    p, a, span, li {
-        color: #4A4A4A;
-        font-family: 'Roboto', sans-serif;
-        line-height: 1.6;
-    }
-    
-    .header-container {
-        background-color: white;
-        padding: 1.5rem 5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    .header-logo {
-        display: flex;
-        align-items: center;
-    }
-    .header-nav {
-        display: flex;
-        gap: 30px;
-        font-size: 1.1rem;
-    }
-    .header-nav a {
-        color: #007BFF;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-    .header-nav a:hover {
-        color: #0056b3;
+    p, li {
+        color: #4A5568; /* Slightly lighter for body text */
     }
 
-    .hero-section {
-        background: linear-gradient(135deg, #007BFF 0%, #3498DB 100%);
+    /* Button styling for a modern, rounded look */
+    .stButton > button {
+        background-color: #4299E1; /* A friendly, professional blue */
         color: white;
-        padding: 6rem 5rem;
-        border-radius: 15px;
-        margin-top: 2rem;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-    .hero-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-        background-size: 10px 10px;
-    }
-
-    .hero-content {
-        display: flex;
-        align-items: center;
-        gap: 5rem;
-        position: relative;
-        z-index: 1;
-    }
-    .hero-text-container {
-        flex: 1;
-    }
-    .hero-image-container {
-        flex: 1;
-        text-align: right;
-    }
-    .hero-image {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    .hero-title {
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: white;
-        margin-bottom: 1rem;
-    }
-    .hero-subtitle {
-        font-size: 1.5rem;
-        color: white;
-        font-weight: 400;
-        margin-bottom: 2rem;
-    }
-    .hero-description {
-        font-size: 1rem;
-        color: white;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-    }
-    .hero-button button {
-        background-color: white;
-        color: #007BFF;
-        font-size: 1.2rem;
-        border-radius: 8px;
-        padding: 12px 30px;
+        font-weight: 600;
         border: none;
-        font-weight: bold;
+        border-radius: 9999px; /* Pill shape */
+        padding: 0.75rem 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.2s ease-in-out;
     }
-    .hero-button button:hover {
-        background-color: #f0f0f0;
+    .stButton > button:hover {
+        background-color: #2B6CB0; /* Darker blue on hover */
         transform: translateY(-2px);
+    }
+    
+    /* Hero Section styling with one column */
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        margin-top: 2rem;
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+    .hero-title {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        color: #2D3748;
+    }
+    .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: #4A5568;
+    }
+
+    /* Custom styling for cards */
+    .card {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Footer styling */
+    .footer {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid #E2E8F0;
+        color: #718096;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Header
-st.markdown(
-    """
-    <div class="header-container">
-        <div class="header-logo">
-            <h2 style="color: #007BFF; margin: 0; padding-right: 5px;">+</h2>
-            <h4 style="margin: 0;">Company Name</h4>
-        </div>
-        <div class="header-nav">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Join Us</a>
-            <a href="#">Services</a>
-        </div>
-    </div>
-    """, unsafe_allow_html=True
-)
+# --- Hero Section ---
+with st.container():
+    st.markdown("<div class='hero-container'>", unsafe_allow_html=True)
+    st.markdown("<h1 class='hero-title'>Thrive Mental Health Wellness</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='hero-subtitle'>Your Path to Well-being Starts Here</p>", unsafe_allow_html=True)
+    
+    st.markdown("<p style='max-width: 600px; font-size:1.1rem;'>We offer compassionate and personalized mental health care to help you thrive.</p>", unsafe_allow_html=True)
+    
+    # Adding the buttons
+    button_col1, button_col2 = st.columns([1, 1])
+    with button_col1:
+        st.button("Book Appointment", use_container_width=True)
+    with button_col2:
+        st.button("Contact Us", use_container_width=True)
+    
+    st.markdown("</div>", unsafe_allow_html=True)
 
-# Hero Section
-st.markdown(
-    """
-    <div class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text-container">
-                <h1 class="hero-title">Health Professionals</h1>
-                <h2 class="hero-subtitle">Your Health is Important, Take Care</h2>
-                <p class="hero-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque tempor urna, sit amet porttitor mi viverra nec. Pellentesque urna risus, tempus vitae elit tincidunt, hendrerit pharetra sapien. Vivamus dapibus tortor in nisi tincidunt, cursus molestie leo gravida.</p>
-                <div class="hero-button">
-                    <button>Book an Appointment</button>
-                </div>
-            </div>
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1628148902094-1a3597b0a70f?q=80&w=2670&auto=format&fit=crop" class="hero-image" />
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True
-)
+# --- Services Section ---
+st.markdown("<h2 style='text-align: center; margin-top: 4rem;'>Our Services</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>We provide a range of services to support your mental health journey.</p>", unsafe_allow_html=True)
 
+service_col1, service_col2, service_col3 = st.columns(3)
+
+with service_col1:
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.subheader("Individual Therapy")
+    st.markdown("---")
+    st.write("Personalized counseling to help you navigate life's challenges.")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with service_col2:
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.subheader("Medication Management")
+    st.markdown("---")
+    st.write("Comprehensive evaluations and ongoing support for medication.")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with service_col3:
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.subheader("Telehealth")
+    st.markdown("---")
+    st.write("Convenient and secure virtual appointments from your home.")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# --- Call to Action Section ---
+st.markdown("<h2 style='text-align: center; margin-top: 4rem;'>Ready to Begin Your Journey?</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Contact us today to schedule your first appointment.</p>", unsafe_allow_html=True)
+st.button("Schedule Now", use_container_width=True)
+
+# --- Footer ---
+st.markdown("---")
 st.markdown("""
 <div class="footer">
     <p>© 2024 Thrive Mental Health Wellness. All rights reserved.</p>
-    <p><strong>Disclaimer:</strong> This website is for informational purposes only and does not provide medical advice. Always seek the advice of a qualified healthcare professional.</p>
+    <p>Disclaimer: This website is for informational purposes only and does not provide medical advice. Always seek the advice of a qualified healthcare professional.</p>
 </div>
 """, unsafe_allow_html=True)
