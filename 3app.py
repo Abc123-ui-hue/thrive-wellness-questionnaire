@@ -136,6 +136,16 @@ st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", in
 # Custom CSS for a professional look
 st.markdown("""
 <style>
+    /* Global Background Color */
+    [data-testid="stAppViewContainer"] {
+        background-color: #F8F9FA;
+    }
+    
+    /* Sidebar Background Color */
+    [data-testid="stSidebar"] {
+        background-color: #E9ECEF;
+    }
+    
     .reportview-container .main .block-container {
         padding-top: 1rem;
         padding-bottom: 1rem;
