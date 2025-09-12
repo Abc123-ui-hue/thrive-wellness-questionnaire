@@ -2,20 +2,19 @@ import streamlit as st
 
 # Helper functions for a multi-page app
 def show_home_page():
-    # Hero Section with a two-column layout
+    # Hero Section
     st.markdown(
         """
         <style>
             .hero-container {
                 background-color: white;
-                color: #2D3E50;
                 padding: 4rem 2rem;
                 border-radius: 12px;
                 margin-bottom: 2rem;
                 display: flex;
                 align-items: center;
                 gap: 2rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
             .hero-text {
                 flex: 2;
@@ -28,10 +27,10 @@ def show_home_page():
                 max-width: 100%;
                 height: auto;
                 border-radius: 12px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
             .staff-info {
-                background-color: #40E0D0;
+                background-color: #3CB371; /* Medium Sea Green */
                 color: white;
                 font-weight: bold;
                 padding: 0.5rem 1rem;
@@ -44,6 +43,7 @@ def show_home_page():
                 font-weight: bold;
                 line-height: 1.2;
                 margin-bottom: 0.5rem;
+                color: #2F4F4F; /* Dark Slate Gray */
             }
             .hero-subtitle {
                 font-size: 1.5rem;
@@ -51,7 +51,7 @@ def show_home_page():
                 color: #555555;
             }
             .book-button, .contact-button {
-                background-color: #40E0D0;
+                background-color: #3CB371; /* Medium Sea Green */
                 color: white;
                 font-weight: bold;
                 padding: 1rem 2rem;
@@ -59,11 +59,15 @@ def show_home_page():
                 text-decoration: none;
                 margin-right: 1rem;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.2s ease-in-out;
             }
             .contact-button {
-                background-color: #2D3E50;
-                border: 2px solid #2D3E50;
+                background-color: #2F4F4F; /* Dark Slate Gray */
+                border: 2px solid #2F4F4F;
                 color: white;
+            }
+            .book-button:hover, .contact-button:hover {
+                transform: translateY(-2px);
             }
         </style>
         <div class="hero-container">
@@ -85,8 +89,8 @@ def show_home_page():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("<h2 style='color:#2D3E50;'>Medication Management</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='color:#555555;'>Psychotherapy</p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#2F4F4F;'>Medication Management</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='color:#555555;'>We provide comprehensive medication management to help you find the right balance and stability.</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -101,7 +105,7 @@ def show_home_page():
         )
 
     with col2:
-        st.markdown("<h2 style='color:#2D3E50;'>Testimonials</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#2F4F4F;'>Testimonials</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="background-color: #F0F0F0; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
@@ -112,14 +116,12 @@ def show_home_page():
         )
 
     with col3:
-        st.markdown("<h2 style='color:#2D3E50;'>Featured News</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#2F4F4F;'>Featured News</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="color: #555555;">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <br>
-                <h4 style='color: #40E0D0;'>Featured News</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p><strong><a href="#" style="color: #3CB371; text-decoration: none;">New Study on Wellness</a></strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             """, unsafe_allow_html=True
         )
@@ -128,24 +130,24 @@ def show_home_page():
 # --- Main App Logic ---
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS for a professional look with a background image
+# Custom CSS for a professional look with a full-page background color
 st.markdown("""
 <style>
     /* Full-page background color */
     body {
-        background-color: #F7F9FC; /* Light gray to cover the entire page */
-    }
-
-    /* Target the main app container for the hero section background */
-    [data-testid="stAppViewContainer"] {
-        background-color: #F7F9FC;
+        background-color: #F8F8F8;
     }
     
-    /* Content container to create a layered effect */
+    /* Target the main app container */
+    [data-testid="stAppViewContainer"] {
+        background-color: #F8F8F8;
+    }
+    
+    /* Content container styling to give it a "block" feel */
     .block-container {
         background: white;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         padding: 2rem;
         margin-top: 2rem;
     }
@@ -154,20 +156,20 @@ st.markdown("""
     .logo {
         font-size: 2rem;
         font-weight: bold;
-        color: #2D3E50;
+        color: #2F4F4F;
     }
 
     /* General text and heading colors */
     h1, h2, h3, h4 {
-        color: #2D3E50;
+        color: #2F4F4F;
     }
     p, a, div, span, li, ul, pre {
         color: #555555;
     }
 
-    /* Button styles */
+    /* Button styles - general */
     .stButton>button {
-        background-color: #2D3E50;
+        background-color: #2F4F4F;
         color: white;
         border-radius: 8px;
         border: none;
@@ -175,7 +177,7 @@ st.markdown("""
         transition: all 0.2s ease-in-out;
     }
     .stButton>button:hover {
-        background-color: #40E0D0;
+        background-color: #3CB371;
         transform: scale(1.05);
     }
 </style>
@@ -202,7 +204,7 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #2D3E50;'>
+    <p style='color: #2F4F4F;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
