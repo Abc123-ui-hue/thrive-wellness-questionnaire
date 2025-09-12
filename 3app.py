@@ -7,36 +7,29 @@ def show_home_page():
         """
         <style>
             .hero-container {
-                background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
-                color: #003366;
-                padding: 4rem 2rem;
+                background-image: linear-gradient(rgba(45, 62, 80, 0.7), rgba(45, 62, 80, 0.7)), url("https://images.unsplash.com/photo-1629864276707-16016e792e8a?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+                background-size: cover;
+                background-position: center;
+                color: white;
+                text-align: center;
+                padding: 10rem 2rem;
                 border-radius: 12px;
                 margin-bottom: 2rem;
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-            }
-            .hero-text {
-                flex: 2;
-            }
-            .hero-image {
-                flex: 1;
-                text-align: right;
             }
             .hero-title {
-                font-size: 3rem;
+                font-size: 4rem;
                 font-weight: bold;
                 line-height: 1.2;
                 margin-bottom: 0.5rem;
-                color: #003366;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             }
             .hero-subtitle {
                 font-size: 1.5rem;
-                color: #005A9C;
                 margin-bottom: 2rem;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             }
             .book-button, .contact-button {
-                background-color: #0077B6;
+                background-color: #40E0D0; /* Turquoise */
                 color: white;
                 font-weight: bold;
                 padding: 1rem 2rem;
@@ -45,17 +38,15 @@ def show_home_page():
                 margin-right: 1rem;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
+            .contact-button {
+                background-color: #2D3E50; /* Darker Blue-Gray */
+            }
         </style>
         <div class="hero-container">
-            <div class="hero-text">
-                <h1 class="hero-title">Health Professionals</h1>
-                <p class="hero-subtitle">Your Health is Important, Take Care</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sceleris
-                <a href="#" class="book-button">Book Appointment</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1549414002-3642732997d0?q=80&w
-            </div>
+            <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
+            <p class="hero-subtitle">Your mental wellness is our priority.</p>
+            <a href="#" class="book-button">Book Appointment</a>
+            <a href="#" class="contact-button">Contact Us</a>
         </div>
         """, unsafe_allow_html=True
     )
@@ -64,7 +55,7 @@ def show_home_page():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("<h2 style='color:#003366;'>Medication Management</h2>", unsafe_allow_
+        st.markdown("<h2 style='color:#2D3E50;'>Medication Management</h2>", unsafe_allow_html=True)
         st.markdown("<p style='color:#555555;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
@@ -72,32 +63,32 @@ def show_home_page():
         st.markdown(
             """
             <div style="display: flex; gap: 10px;">
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook-new.
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/linkedin.png"
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" 
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" style="width: 32px; height: 32px;"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/linkedin.png" style="width: 32px; height: 32px;"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" style="width: 32px; height: 32px;"></a>
             </div>
             """, unsafe_allow_html=True
         )
 
     with col2:
-        st.markdown("<h2 style='color:#003366;'>Testimonials</h2>", unsafe_allow_html=True
+        st.markdown("<h2 style='color:#2D3E50;'>Testimonials</h2>", unsafe_allow_html=True)
         st.markdown(
             """
-            <div style="background-color: #F0F0F0; padding: 15px; border-radius: 12px; mar
-                <p style="font-style: italic; color: #555555;">"Thrive has truly changed m
-                <p style="text-align: right; font-weight: bold; color: #555555;">- A.B., P
+            <div style="background-color: #F0F0F0; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <p style="font-style: italic; color: #555555;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
+                <p style="text-align: right; font-weight: bold; color: #555555;">- A.B., Patient</p>
             </div>
             """, unsafe_allow_html=True
         )
 
     with col3:
-        st.markdown("<h2 style='color:#003366;'>Featured News</h2>", unsafe_allow_html=Tru
+        st.markdown("<h2 style='color:#2D3E50;'>Featured News</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="color: #555555;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <br>
-                <h4 style='color: #0077B6;'>Featured News</h4>
+                <h4 style='color: #40E0D0;'>Featured News</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             """, unsafe_allow_html=True
@@ -105,21 +96,21 @@ def show_home_page():
 
 
 # --- Main App Logic ---
-st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", initial_side
+st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", initial_sidebar_state="collapsed")
 
 # Custom CSS for a professional look with a background image
 st.markdown("""
 <style>
     /* Main app container with a background image */
     [data-testid="stAppViewContainer"] {
-        background: url("https://images.unsplash.com/photo-1549414002-3642732997d0?q=80&w=
+        background: url("https://images.unsplash.com/photo-1629864276707-16016e792e8a?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
     }
     
     /* Content container to create a layered effect */
     [data-testid="stVerticalBlock"] {
-        background: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readabil
+        background: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
         backdrop-filter: blur(8px); /* Blur effect */
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -130,12 +121,12 @@ st.markdown("""
     .logo {
         font-size: 2rem;
         font-weight: bold;
-        color: #003366;
+        color: #2D3E50;
     }
 
     /* General text and heading colors */
     h1, h2, h3, h4 {
-        color: #003366;
+        color: #2D3E50;
     }
     p, a, div, span, li, ul, pre {
         color: #555555;
@@ -143,7 +134,7 @@ st.markdown("""
 
     /* Button styles */
     .stButton>button {
-        background-color: #003366;
+        background-color: #2D3E50;
         color: white;
         border-radius: 8px;
         border: none;
@@ -160,12 +151,12 @@ st.markdown("""
 # Top navigation with a logo
 st.markdown(
     """
-    <div style="display: flex; justify-content: space-between; align-items: center; paddin
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
         <span class="logo">Thrive</span>
         <div style="display: flex; gap: 20px;">
-            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">
-            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">
-            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">
+            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">Home</a>
+            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">Login</a>
+            <a href="#" style="font-weight: bold; color: #555555; text-decoration: none;">Register</a>
         </div>
     </div>
     <hr style="border: 1px solid #ccc;">
@@ -178,12 +169,12 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #003366;'>
+    <p style='color: #2D3E50;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
-        <strong>Disclaimer:</strong> This website is for informational purposes only and d
-        Always seek the advice of a qualified healthcare professional with any questions r
+        <strong>Disclaimer:</strong> This website is for informational purposes only and does not provide medical advice.
+        Always seek the advice of a qualified healthcare professional with any questions regarding a medical condition.
     </p>
 </div>
 """, unsafe_allow_html=True)
