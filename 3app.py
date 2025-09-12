@@ -20,6 +20,37 @@ st.markdown("""
         background-color: #ffffff;
     }
     
+    /* Header Section */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a237e;
+    }
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+    .nav-link {
+        color: #4a5568;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .nav-link:hover {
+        color: #4f46e5;
+    }
+    
     /* Hero Section */
     .hero-container {
         position: relative;
@@ -125,6 +156,19 @@ st.markdown("""
         margin: 0;
     }
 </style>
+""", unsafe_allow_html=True)
+
+# --- Header Section ---
+st.markdown("""
+<div class="header">
+    <div class="logo">Thrive Medical Center</div>
+    <div class="nav-links">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Services</a>
+        <a href="#" class="nav-link">Contact</a>
+    </div>
+</div>
 """, unsafe_allow_html=True)
 
 # --- Hero Section ---
