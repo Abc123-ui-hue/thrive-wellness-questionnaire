@@ -1,29 +1,27 @@
 import streamlit as st
 
-# --- Page Configuration and Styles ---
+# --- Page Configuration ---
+# Use a wide layout to make the most of the screen space
 st.set_page_config(
-    page_title="Medical Center",
+    page_title="Streamlit Layout",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="collapsed"
 )
 
-# Inject custom CSS for the exact look of the image
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
+# --- Custom CSS for Styling ---
+# This uses st.markdown to inject custom CSS for a more polished look
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
     html, body, [class*="st-emotion-cache"] {
         font-family: 'Inter', sans-serif;
     }
 
-    /* Overall page background and padding */
-    .main .st-emotion-cache-121p51f {
-        background-color: #ffffff;
-        padding: 0;
+    /* General styling for a clean look */
+    .st-emotion-cache-121p51f {
+        background-color: #f8f9fa;
     }
-
-    /* Remove default Streamlit padding from main content area */
     .st-emotion-cache-r4231b {
         padding-top: 0;
         padding-bottom: 0;
@@ -31,212 +29,171 @@ st.markdown(
         padding-right: 0;
     }
 
-    /* Custom classes for layout and styling */
-    .container {
-        width: 100%;
-        max-width: 1280px;
+    /* Header styling */
+    .header {
+        background-color: white;
+        padding: 1rem 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1f2937;
+    }
+    .nav-link {
+        color: #4b5563;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .nav-link:hover {
+        color: #4f46e5;
+    }
+
+    /* Hero Section styling */
+    .hero-section {
+        background-color: #4f46e5;
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+    .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        margin-top: 1rem;
+        max-width: 56rem;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 2rem;
-        padding-right: 2rem;
     }
-    .text-center { text-align: center; }
-    .text-4xl { font-size: 2.25rem; }
-    .text-5xl { font-size: 3rem; }
-    .text-6xl { font-size: 4rem; }
-    .font-bold { font-weight: 700; }
-    .font-extrabold { font-weight: 800; }
-    .rounded-full { border-radius: 9999px; }
-    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-
-    /* Custom Hero section styling */
-    .hero-container {
-        display: flex;
-        align-items: center;
-        background-color: #e6f7ff;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+    .hero-button {
+        background-color: white;
+        color: #4f46e5;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 9999px;
+        margin-top: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s;
+    }
+    .hero-button:hover {
+        background-color: #f3f4f6;
     }
 
-    .hero-content {
-        padding-right: 2rem;
-    }
-
-    .hero-image-container {
-        position: relative;
-        flex-shrink: 0;
-    }
-
-    .stat-circle {
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        color: white;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        padding: 1rem;
-    }
-
-    .stat-circle h3 {
-        font-size: 2rem;
-        margin-bottom: 0.25rem;
-    }
-    .stat-circle p {
-        font-size: 0.875rem;
-    }
-
-    .circle-1 {
-        background-color: #ff3366;
-        top: 25%;
-        left: -10%;
-        transform: translateY(-50%);
-    }
-
-    .circle-2 {
-        background-color: #33aaff;
-        top: 30%;
-        right: -10%;
-        transform: translateY(-50%);
-    }
-
-    .circle-3 {
-        background-color: #cc0066;
-        bottom: 10%;
-        right: 0;
-        transform: translateY(-50%);
-    }
-
-    /* Services Section Styling */
-    .services-grid {
-        display: flex;
-        justify-content: space-around;
-        padding: 2rem 0;
-    }
-
-    .service-card {
-        text-align: center;
+    /* Feature Cards styling */
+    .feature-card {
+        background-color: white;
         padding: 2rem;
         border-radius: 1rem;
-        background-color: #fff;
+        text-align: center;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 30%;
     }
-    .service-card .icon {
-        font-size: 2.5rem;
-        color: #ff3366;
+    .feature-icon-box {
+        width: 4rem;
+        height: 4rem;
+        background-color: #e0e7ff;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: #4f46e5;
     }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1f2937;
+    }
+    .feature-description {
+        color: #6b7280;
+    }
+    
+    /* Footer styling */
+    .footer {
+        background-color: white;
+        padding: 2rem;
+        text-align: center;
+        color: #6b7280;
+        margin-top: 3rem;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # --- Header Section ---
-st.markdown(
-    """
-    <header style="background-color: #ffffff; padding: 1.5rem 0;">
-        <div class="container flex justify-between items-center">
-            <div style="font-size: 1.25rem; font-weight: 700; color: #4b5563;">
-                #1 Medical Center
-            </div>
+with st.container():
+    st.markdown("""
+        <div class="header">
+            <div class="logo">Your Logo</div>
             <nav style="display: flex; gap: 1.5rem;">
-                <a href="#" style="color: #4b5563;">Home</a>
-                <a href="#" style="color: #4b5563;">About us</a>
-                <a href="#" style="color: #4b5563;">Services</a>
-                <a href="#" style="color: #4b5563;">Doctors</a>
-                <a href="#" style="color: #4b5563;">Contact us</a>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Contact</a>
             </nav>
-            <div style="background-color: #4f46e5; color: #ffffff; padding: 0.5rem 1.25rem; border-radius: 9999px; font-weight: 500;">
-                Sign Up
-            </div>
         </div>
-    </header>
-    """,
-    unsafe_allow_html=True,
-)
+    """, unsafe_allow_html=True)
 
 # --- Hero Section ---
-st.markdown('<div class="hero-container">', unsafe_allow_html=True)
-hero_col1, hero_col2 = st.columns([1, 1])
-
-with hero_col1:
-    st.markdown(
-        """
-        <div class="hero-content">
-            <h1 style="color: #1a202c; font-size: 3rem; font-weight: 800; line-height: 1.2;">
-                WE CARE ABOUT<br>YOUR HEALTH
-            </h1>
-            <p style="color: #4b5563; margin-top: 1rem;">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+with st.container():
+    st.markdown("""
+        <div class="hero-section">
+            <h1 class="hero-title">Your Compelling Headline Here</h1>
+            <p class="hero-subtitle">
+                A short and powerful sub-headline that explains what you do and why it matters.
             </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                <button style="background-color: #4f46e5; color: white; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; border: none;">Get An Appointment</button>
-                <button style="background-color: #ff007f; color: white; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; border: none;">More Info</button>
-            </div>
+            <a href="#" class="hero-button">Get Started</a>
         </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
-with hero_col2:
-    st.markdown(
-        """
-        <div class="hero-image-container">
-            <img src="https://placehold.co/400x500/E5E7EB/4B5563?text=Professional+Doctor" alt="Doctor" style="width: 100%; height: auto; border-radius: 1rem;">
-            <div class="stat-circle circle-1" style="background-color: #ff007f;">
-                <h3>120+</h3>
-                <p>Doctors & Nurses</p>
-            </div>
-            <div class="stat-circle circle-2" style="background-color: #4f46e5;">
-                <h3>800+</h3>
-                <p>Patients Beds</p>
-            </div>
-            <div class="stat-circle circle-3" style="background-color: #ff007f;">
-                <h3>45+</h3>
-                <p>Years of Experience</p>
-            </div>
+# --- Main Content (Key Features) ---
+st.container()
+st.markdown("<h2 style='text-align: center; font-size: 1.875rem; font-weight: 700; margin-top: 3rem; color: #1f2937;'>Key Features</h2>", unsafe_allow_html=True)
+st.markdown("<div style='display: flex; justify-content: space-around; gap: 2rem; padding: 2rem 0; flex-wrap: wrap;'>", unsafe_allow_html=True)
+
+# Feature Card 1
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674m-4.674 0L15 20m-5.337-3h4.674m-4.674 0L9.663 17"></path></svg>
         </div>
-        """,
-        unsafe_allow_html=True,
-    )
-st.markdown('</div>', unsafe_allow_html=True)
+        <h3 class="feature-title">Feature One</h3>
+        <p class="feature-description">Describe a key benefit or feature of your product or service here.</p>
+    </div>
+""", unsafe_allow_html=True)
 
-
-# --- Services Section ---
-st.markdown('<div class="container services-grid">', unsafe_allow_html=True)
-
-service_data = [
-    {
-        "title": "DIAGNOSIS",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.",
-        "icon": "🩺",
-    },
-    {
-        "title": "MEDICINE",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.",
-        "icon": "💊",
-    },
-    {
-        "title": "PATHOLOGY",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.",
-        "icon": "➕",
-    },
-]
-
-for service in service_data:
-    st.markdown(
-        f"""
-        <div class="service-card">
-            <div class="icon">{service["icon"]}</div>
-            <h3 style="margin-top: 1rem; font-weight: 700; color: #1a202c;">{service["title"]}</h3>
-            <p style="margin-top: 0.5rem; color: #4b5563;">{service["description"]}</p>
+# Feature Card 2
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         </div>
-        """,
-        unsafe_allow_html=True,
-    )
+        <h3 class="feature-title">Feature Two</h3>
+        <p class="feature-description">Explain another important aspect that makes your offering unique.</p>
+    </div>
+""", unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
+# Feature Card 3
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.5 3-4.5s-1.343-4.5-3-4.5S9 12 9 12s1.343 4.5 3 4.5z"></path></svg>
+        </div>
+        <h3 class="feature-title">Feature Three</h3>
+        <p class="feature-description">A final description to showcase your value proposition to customers.</p>
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+# --- Footer ---
+st.markdown("""
+    <div class="footer">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+""", unsafe_allow_html=True)
