@@ -1,35 +1,56 @@
 import streamlit as st
 
-# --- Helper functions for multi-page app ---
+# Helper functions for a multi-page app
 def show_home_page():
-    # Hero Section with a full-width image and overlay text
+    # Hero Section with a two-column layout
     st.markdown(
         """
         <style>
             .hero-container {
-                background-image: linear-gradient(rgba(45, 62, 80, 0.7), rgba(45, 62, 80, 0.7)), url("https://images.unsplash.com/photo-1629864276707-16016e792e8a?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-                background-size: cover;
-                background-position: center;
+                display: flex;
+                align-items: center;
+                background-color: #2D3E50;
                 color: white;
-                text-align: center;
-                padding: 10rem 2rem;
+                padding: 4rem 2rem;
                 border-radius: 12px;
                 margin-bottom: 2rem;
+                gap: 2rem;
+            }
+            .hero-text {
+                flex: 2;
+            }
+            .hero-image {
+                flex: 1;
+                text-align: right;
+            }
+            .hero-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 50%;
+                border: 5px solid white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+            .staff-info {
+                background-color: #40E0D0;
+                color: #2D3E50;
+                font-weight: bold;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                display: inline-block;
             }
             .hero-title {
-                font-size: 4rem;
+                font-size: 3rem;
                 font-weight: bold;
                 line-height: 1.2;
                 margin-bottom: 0.5rem;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             }
             .hero-subtitle {
                 font-size: 1.5rem;
                 margin-bottom: 2rem;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             }
             .book-button, .contact-button {
-                background-color: #40E0D0; /* Turquoise */
+                background-color: #FFA500;
                 color: white;
                 font-weight: bold;
                 padding: 1rem 2rem;
@@ -39,14 +60,21 @@ def show_home_page():
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
             .contact-button {
-                background-color: #2D3E50; /* Darker Blue-Gray */
+                background-color: #2D3E50;
+                border: 2px solid white;
             }
         </style>
         <div class="hero-container">
-            <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
-            <p class="hero-subtitle">Your mental wellness is our priority.</p>
-            <a href="#" class="book-button">Book Appointment</a>
-            <a href="#" class="contact-button">Contact Us</a>
+            <div class="hero-text">
+                <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
+                <p class="hero-subtitle">Your mental wellness is our priority.</p>
+                <a href="#" class="book-button">Book Appointment</a>
+                <a href="#" class="contact-button">Contact Us</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1549414002-3642732997d0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cecilia Wamburu, PMHNP-BC">
+                <div class="staff-info">Cecilia Wamburu, PMHNP-BC</div>
+            </div>
         </div>
         """, unsafe_allow_html=True
     )
@@ -103,15 +131,12 @@ st.markdown("""
 <style>
     /* Main app container with a background image */
     [data-testid="stAppViewContainer"] {
-        background: url("https://images.unsplash.com/photo-1629864276707-16016e792e8a?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-        background-size: cover;
-        background-position: center;
+        background-color: #f8f8f8;
     }
     
     /* Content container to create a layered effect */
     [data-testid="stVerticalBlock"] {
-        background: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
-        backdrop-filter: blur(8px); /* Blur effect */
+        background: white;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 2rem;
