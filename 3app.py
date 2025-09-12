@@ -12,7 +12,7 @@ st.markdown("""
         --secondary-orange: #FF7F50; /* Coral */
         --text-dark: #2F4F4F; /* Dark Slate Gray */
         --text-light: #F8F8F8; /* Light gray for contrast */
-        --background-light: #F9F9F9; /* Very light gray */
+        --background-light: #E6F0FF; /* Light blue */
         --background-hero: #E6F0FF; /* Light blue-gray for hero */
     }
 
@@ -137,7 +137,7 @@ with hero_col1:
     )
 
 with hero_col2:
-    st.image("https://images.unsplash.com/photo-1576092765089-808603632cf4?q=80&w=2787&auto=format&fit=crop", width=350)
+    st.image("https://placehold.co/350x450/008080/FFFFFF?text=Professional+Image", width=350)
     st.markdown(
         """
         <p style="text-align: center; margin-top: 10px; font-weight: bold; color: var(--text-dark);">Cecilia Wamburu PMHNP-BC</p>
