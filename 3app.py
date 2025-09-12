@@ -3,7 +3,7 @@ import base64
 
 # --- Helper functions for multi-page app ---
 def show_home_page():
-    st.image("https://placehold.co/1200x400/D0E0D7/2c3e50?text=Thrive+Mental+Health+Wellness", caption="A safe space for healing and growth", use_column_width=True)
+    st.image("https://placehold.co/1200x400/D0E0D7/2c3e50?text=Thrive+Mental+Health+Wellness", caption="A safe space for healing and growth", use_container_width=True)
     st.title("Thrive Mental Health Wellness")
     st.markdown("""
     <p style="font-size:1.25rem; color:#555;">
@@ -27,7 +27,7 @@ def show_home_page():
     st.subheader("Featured Staff")
     col3, col4 = st.columns([1, 2])
     with col3:
-        st.image("https://placehold.co/200x200/B8D8D3/2c3e50?text=C.W.", caption="Cecilia Wamburu, PMHNP-BC", use_column_width=True)
+        st.image("https://placehold.co/200x200/B8D8D3/2c3e50?text=C.W.", caption="Cecilia Wamburu, PMHNP-BC", use_container_width=True)
     with col4:
         st.markdown(
             """
@@ -72,7 +72,7 @@ def show_about_us_page():
     
     st.subheader("Our Team")
     st.write("We have a dedicated team of licensed professionals committed to your well-being.")
-    st.image("https://placehold.co/800x400/D0E0D7/2c3e50?text=Clinic+Environment", use_column_width=True)
+    st.image("https://placehold.co/800x400/D0E0D7/2c3e50?text=Clinic+Environment", use_container_width=True)
 
 def show_services_page():
     st.header("Our Services")
