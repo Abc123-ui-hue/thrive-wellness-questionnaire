@@ -3,7 +3,7 @@ import streamlit as st
 # Set the page configuration for a wide, clean layout
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide")
 
-# Custom CSS for a clean, professional look with the exact color palette from the image
+# Custom CSS to match the exact design from the image
 st.markdown("""
 <style>
     /* Color Variables from Image */
@@ -12,6 +12,7 @@ st.markdown("""
         --secondary-blue: #E6F0FF;
         --text-dark: #2F4F4F;
         --text-light-gray: #4A4A4A;
+        --footer-gray: #777;
     }
 
     /* General styles for a professional look */
@@ -25,20 +26,8 @@ st.markdown("""
         padding-left: 5rem;
         padding-right: 5rem;
     }
-    
-    .st-emotion-cache-1f8p9w5 {
-        background-color: white;
-    }
-    .st-emotion-cache-10qnf12 {
-        background-color: white;
-    }
-    .st-emotion-cache-18ni7ap {
-        background-color: white;
-    }
-    .st-emotion-cache-q8s0x2 {
-        background-color: white;
-    }
-    .st-emotion-cache-6q9sum {
+
+    .st-emotion-cache-1f8p9w5, .st-emotion-cache-10qnf12, .st-emotion-cache-18ni7ap, .st-emotion-cache-q8s0x2, .st-emotion-cache-6q9sum, .st-emotion-cache-1cpx6h0 {
         background-color: white;
     }
 
@@ -65,6 +54,7 @@ st.markdown("""
 
     .hero-text-container {
         flex: 2;
+        padding-right: 2rem;
     }
 
     .hero-image-container {
@@ -110,25 +100,31 @@ st.markdown("""
     .service-card h4 {
         margin-top: 15px;
         color: var(--primary-blue);
+        font-weight: bold;
     }
     .service-card p {
         font-size: 0.9rem;
     }
-    .contact-card {
-        background-color: var(--primary-blue);
-        color: white;
-        padding: 30px;
+    .contact-card-container {
+        display: flex;
+        align-items: center;
+        background-color: #f7f7f7;
+        padding: 2rem;
         border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        margin-top: 2rem;
     }
-    .contact-card h2, .contact-card p, .contact-card a {
-        color: white;
+    .contact-card-text {
+        flex: 2;
+        text-align: left;
     }
-    .contact-card .stButton > button {
-        background-color: white;
-        color: var(--primary-blue);
+    .contact-card-button {
+        flex: 1;
+        text-align: right;
+    }
+    .contact-card-button .stButton > button {
         font-size: 1.2rem;
+        padding: 15px 30px;
     }
     .footer {
         text-align: center;
@@ -136,7 +132,7 @@ st.markdown("""
         margin-top: 40px;
         border-top: 1px solid #ddd;
         font-size: 0.9rem;
-        color: #777;
+        color: var(--footer-gray);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -171,24 +167,20 @@ with st.container():
     with hero_col1:
         st.markdown(
             """
-            <div class="hero-text-container">
-                <h1 style="font-size: 3.5rem; color: var(--text-dark);">Your Mental Health Matters</h1>
-                <p style="font-size: 1.2rem; color: var(--text-light-gray);">Compassionate mental health care for your well-being.</p>
-                <div style="margin-top: 2.5rem;">
-                    <a href="#" class="stButton"><button>Book an Appointment</button></a>
+            <div class="hero-section" style="background-color: #E6F0FF; box-shadow: none; border-radius: 12px; padding: 3rem 4rem; display: flex; align-items: center; margin-top: 2rem; gap: 5rem;">
+                <div style="flex: 2; padding-right: 2rem;">
+                    <h1 style="font-size: 3.5rem; color: #2F4F4F;">Your Mental Health Matters</h1>
+                    <p style="font-size: 1.2rem; color: #4A4A4A; line-height: 1.6;">Compassionate mental health care for your well-being.</p>
+                    <div style="margin-top: 2.5rem;">
+                        <a href="#" class="stButton"><button>Book an Appointment</button></a>
+                    </div>
+                </div>
+                <div style="flex: 1; text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1559114755-325b3952a1b9?q=80&w=2836&auto=format&fit=crop" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);" />
                 </div>
             </div>
             """, unsafe_allow_html=True
         )
-    with hero_col2:
-        st.markdown(
-            """
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1559114755-325b3952a1b9?q=80&w=2836&auto=format&fit=crop" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);" />
-            </div>
-            """, unsafe_allow_html=True
-        )
-st.markdown("---")
 
 # Our Services Section
 st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
