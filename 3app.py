@@ -6,11 +6,11 @@ def show_home_page():
     # Top navigation bar
     col_nav_spacer, col_nav_home, col_nav_login, col_nav_register = st.columns([2, 1, 1, 1])
     with col_nav_home:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Home</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #555555;'>Home</p>", unsafe_allow_html=True)
     with col_nav_login:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Login</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #555555;'>Login</p>", unsafe_allow_html=True)
     with col_nav_register:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Register</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #555555;'>Register</p>", unsafe_allow_html=True)
 
     # Hero Section with Two Columns and Image
     hero_container = st.container()
@@ -21,8 +21,8 @@ def show_home_page():
                 f"""
                 <style>
                 .hero-container {{
-                    background: linear-gradient(to right, #D6EAF8, #AED6F1);
-                    color: #333333;
+                    background: linear-gradient(to right, #E8F8F5, #D6F1E9);
+                    color: #555555;
                     padding: 4rem 2rem;
                     border-radius: 12px;
                 }}
@@ -31,15 +31,15 @@ def show_home_page():
                     font-weight: bold;
                     line-height: 1.2;
                     margin-bottom: 0.5rem;
-                    color: #1A237E;
+                    color: #2E8B57;
                 }}
                 .hero-subtitle {{
                     font-size: 1.5rem;
-                    color: #333333;
+                    color: #555555;
                     margin-bottom: 2rem;
                 }}
                 .book-button, .contact-button {{
-                    background-color: #FFA500;
+                    background-color: #2E8B57;
                     color: white;
                     font-weight: bold;
                     padding: 1rem 2rem;
@@ -48,7 +48,7 @@ def show_home_page():
                     margin-right: 1rem;
                 }}
                 .contact-button {{
-                    background-color: #2c3e50;
+                    background-color: #8B4513;
                 }}
                 </style>
                 <div class="hero-container">
@@ -64,15 +64,15 @@ def show_home_page():
                 f"""
                 <style>
                 .img-container {{
-                    background: #F8F8F8;
+                    background: #F0F0F0;
                     padding: 1rem;
                     border-radius: 12px;
                     text-align: center;
                 }}
                 </style>
                 <div class="img-container">
-                    <img src="https://placehold.co/400x400/D6EAF8/333333?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
-                    <p style="text-align: center; color: #333333; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
+                    <img src="https://placehold.co/400x400/E8F8F5/555555?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
+                    <p style="text-align: center; color: #555555; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
                 </div>
                 """, unsafe_allow_html=True
             )
@@ -83,7 +83,7 @@ def show_home_page():
     
     with col1:
         st.header("Medication Management")
-        st.markdown("<p style='color: #333333;'>Psychotherapy</p>", unsafe_allow_html=True)
+        st.markdown("<p style='color: #555555;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -101,9 +101,9 @@ def show_home_page():
         st.header("Testimonials")
         st.markdown(
             """
-            <div style="background-color: #E8F8F5; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
-                <p style="font-style: italic; color: #333333;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
-                <p style="text-align: right; font-weight: bold; color: #333333;">- A.B., Patient</p>
+            <div style="background-color: #E6F0F2; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+                <p style="font-style: italic; color: #555555;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
+                <p style="text-align: right; font-weight: bold; color: #555555;">- A.B., Patient</p>
             </div>
             """, unsafe_allow_html=True
         )
@@ -112,10 +112,10 @@ def show_home_page():
         st.header("Featured News")
         st.markdown(
             """
-            <div style="color: #333333;">
+            <div style="color: #555555;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <br>
-                <h4 style='color: #1A237E;'>Featured News</h4>
+                <h4 style='color: #2E8B57;'>Featured News</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             """, unsafe_allow_html=True
@@ -130,12 +130,12 @@ st.markdown("""
 <style>
     /* Global Background Color */
     [data-testid="stAppViewContainer"] {
-        background-color: #F0F8FF;
+        background-color: #F8F8F8;
     }
     
     /* Sidebar Background Color (if used) */
     [data-testid="stSidebar"] {
-        background-color: #E6F0FF;
+        background-color: #F0F0F0;
     }
     
     .reportview-container .main .block-container {
@@ -144,14 +144,14 @@ st.markdown("""
     }
     
     h1, h2, h3, h4 {
-        color: #1A237E;
+        color: #2E8B57;
     }
     p, a, div, span, li, ul, pre {
-        color: #333333;
+        color: #555555;
     }
 
     .stButton>button {
-        background-color: #FFA500;
+        background-color: #2E8B57;
         color: white;
         border-radius: 8px;
         border: none;
@@ -159,7 +159,7 @@ st.markdown("""
         transition: all 0.2s ease-in-out;
     }
     .stButton>button:hover {
-        background-color: #FF8C00;
+        background-color: #3CB371;
         transform: scale(1.05);
     }
 </style>
@@ -171,7 +171,7 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #1A237E;'>
+    <p style='color: #2E8B57;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
@@ -179,4 +179,3 @@ st.markdown("""
         Always seek the advice of a qualified healthcare professional with any questions regarding a medical condition.
     </p>
 </div>
-""", unsafe_allow_html=True)
