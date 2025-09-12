@@ -6,11 +6,11 @@ def show_home_page():
     # Top navigation bar
     col_nav_spacer, col_nav_home, col_nav_login, col_nav_register = st.columns([2, 1, 1, 1])
     with col_nav_home:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Home</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Home</p>", unsafe_allow_html=True)
     with col_nav_login:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Login</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Login</p>", unsafe_allow_html=True)
     with col_nav_register:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Register</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: bold; color: #333333;'>Register</p>", unsafe_allow_html=True)
 
     # Hero Section with Two Columns and Image
     hero_container = st.container()
@@ -21,8 +21,8 @@ def show_home_page():
                 f"""
                 <style>
                 .hero-container {{
-                    background: linear-gradient(to right, #1a237e, #0d47a1);
-                    color: white;
+                    background: linear-gradient(to right, #D6EAF8, #AED6F1);
+                    color: #333333;
                     padding: 4rem 2rem;
                     border-radius: 12px;
                 }}
@@ -31,11 +31,11 @@ def show_home_page():
                     font-weight: bold;
                     line-height: 1.2;
                     margin-bottom: 0.5rem;
-                    color: white;
+                    color: #1A237E;
                 }}
                 .hero-subtitle {{
                     font-size: 1.5rem;
-                    color: white;
+                    color: #333333;
                     margin-bottom: 2rem;
                 }}
                 .book-button, .contact-button {{
@@ -64,15 +64,15 @@ def show_home_page():
                 f"""
                 <style>
                 .img-container {{
-                    background: #2c3e50;
+                    background: #F8F8F8;
                     padding: 1rem;
                     border-radius: 12px;
                     text-align: center;
                 }}
                 </style>
                 <div class="img-container">
-                    <img src="https://placehold.co/400x400/2c3e50/B8D8D3?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
-                    <p style="text-align: center; color: white; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
+                    <img src="https://placehold.co/400x400/D6EAF8/333333?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
+                    <p style="text-align: center; color: #333333; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
                 </div>
                 """, unsafe_allow_html=True
             )
@@ -83,7 +83,7 @@ def show_home_page():
     
     with col1:
         st.header("Medication Management")
-        st.markdown("<p style='color: #CCCCCC;'>Psychotherapy</p>", unsafe_allow_html=True)
+        st.markdown("<p style='color: #333333;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -101,9 +101,9 @@ def show_home_page():
         st.header("Testimonials")
         st.markdown(
             """
-            <div style="background-color: #2c3e50; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
-                <p style="font-style: italic; color: #CCCCCC;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
-                <p style="text-align: right; font-weight: bold; color: #CCCCCC;">- A.B., Patient</p>
+            <div style="background-color: #E8F8F5; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+                <p style="font-style: italic; color: #333333;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
+                <p style="text-align: right; font-weight: bold; color: #333333;">- A.B., Patient</p>
             </div>
             """, unsafe_allow_html=True
         )
@@ -112,10 +112,10 @@ def show_home_page():
         st.header("Featured News")
         st.markdown(
             """
-            <div style="color: #CCCCCC;">
+            <div style="color: #333333;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <br>
-                <h4 style='color: #B0C4DE;'>Featured News</h4>
+                <h4 style='color: #1A237E;'>Featured News</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             """, unsafe_allow_html=True
@@ -130,12 +130,12 @@ st.markdown("""
 <style>
     /* Global Background Color */
     [data-testid="stAppViewContainer"] {
-        background-color: #1A237E;
+        background-color: #F0F8FF;
     }
     
     /* Sidebar Background Color (if used) */
     [data-testid="stSidebar"] {
-        background-color: #263238;
+        background-color: #E6F0FF;
     }
     
     .reportview-container .main .block-container {
@@ -144,8 +144,12 @@ st.markdown("""
     }
     
     h1, h2, h3, h4 {
-        color: #B0C4DE;
+        color: #1A237E;
     }
+    p, a, div, span, li, ul, pre {
+        color: #333333;
+    }
+
     .stButton>button {
         background-color: #FFA500;
         color: white;
@@ -167,7 +171,7 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #B0C4DE;'>
+    <p style='color: #1A237E;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
