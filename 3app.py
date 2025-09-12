@@ -137,7 +137,7 @@ with hero_col1:
     )
 
 with hero_col2:
-    st.image("https://placehold.co/350x450/008080/FFFFFF?text=Professional+Image", width=350)
+    st.image("https://images.unsplash.com/photo-1559114755-325b3952a1b9?q=80&w=2836&auto=format&fit=crop", width=350)
     st.markdown(
         """
         <p style="text-align: center; margin-top: 10px; font-weight: bold; color: var(--text-dark);">Cecilia Wamburu PMHNP-BC</p>
