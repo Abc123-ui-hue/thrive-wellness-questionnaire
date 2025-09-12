@@ -1,87 +1,65 @@
 import streamlit as st
-import base64
 
-# Helper function to convert local image to base64
-def get_image_as_base64(path):
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode()
-
-# --- Page functions ---
+# --- Helper functions for multi-page app ---
 def show_home_page():
-    # Hero Section with Two Columns and Image
-    hero_container = st.container()
-    with hero_container:
-        col_text, col_img = st.columns([2, 1])
-        with col_text:
-            st.markdown(
-                f"""
-                <style>
-                .hero-container {{
-                    background: linear-gradient(to right, #E0F5EB, #D6F1E9);
-                    color: #333333;
-                    padding: 4rem 2rem;
-                    border-radius: 12px;
-                }}
-                .hero-title {{
-                    font-size: 3rem;
-                    font-weight: bold;
-                    line-height: 1.2;
-                    margin-bottom: 0.5rem;
-                    color: #008080;
-                }}
-                .hero-subtitle {{
-                    font-size: 1.5rem;
-                    color: #555555;
-                    margin-bottom: 2rem;
-                }}
-                .book-button, .contact-button {{
-                    background-color: #008080;
-                    color: white;
-                    font-weight: bold;
-                    padding: 1rem 2rem;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    margin-right: 1rem;
-                }}
-                .contact-button {{
-                    background-color: #3CB371;
-                }}
-                </style>
-                <div class="hero-container">
-                    <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
-                    <p class="hero-subtitle">Your mental wellness is our priority.</p>
-                    <a href="#" class="book-button">Book Appointment</a>
-                    <a href="#" class="contact-button">Contact Us</a>
-                </div>
-                """, unsafe_allow_html=True
-            )
-        with col_img:
-            st.markdown(
-                f"""
-                <style>
-                .img-container {{
-                    padding: 1rem;
-                    border-radius: 12px;
-                    text-align: center;
-                }}
-                </style>
-                <div class="img-container">
-                    <img src="https://placehold.co/400x400/D6F1E9/333333?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
-                    <p style="text-align: center; color: #555555; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
-                </div>
-                """, unsafe_allow_html=True
-            )
+    # Hero Section with a full-width image and overlay text
+    st.markdown(
+        """
+        <style>
+            .hero-container {
+                background-image: linear-gradient(rgba(147, 112, 219, 0.6), rgba(64, 224, 208, 0.6)), url("https://images.unsplash.com/photo-1517487823907-77b312a06c85?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+                background-size: cover;
+                background-position: center;
+                color: white;
+                text-align: center;
+                padding: 10rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+            }
+            .hero-title {
+                font-size: 4rem;
+                font-weight: bold;
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            }
+            .book-button, .contact-button {
+                background-color: #40E0D0; /* Turquoise */
+                color: white;
+                font-weight: bold;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                text-decoration: none;
+                margin-right: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .contact-button {
+                background-color: #9370DB; /* Medium Purple */
+            }
+        </style>
+        <div class="hero-container">
+            <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
+            <p class="hero-subtitle">Your mental wellness is our priority.</p>
+            <a href="#" class="book-button">Book Appointment</a>
+            <a href="#" class="contact-button">Contact Us</a>
+        </div>
+        """, unsafe_allow_html=True
+    )
 
-    # Three-Column Content Section
-    st.markdown("---")
+    # Content section with three columns
     col1, col2, col3 = st.columns(3)
-
+    
     with col1:
-        st.header("Medication Management")
-        st.markdown("<p style='color: #555555;'>Psychotherapy</p>", unsafe_allow_html=True)
-
+        st.markdown("<h2 style='color:#9370DB;'>Medication Management</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='color:#555555;'>Psychotherapy</p>", unsafe_allow_html=True)
+        
         st.markdown("---")
-
+        
         st.markdown(
             """
             <div style="display: flex; gap: 10px;">
@@ -93,10 +71,10 @@ def show_home_page():
         )
 
     with col2:
-        st.header("Testimonials")
+        st.markdown("<h2 style='color:#9370DB;'>Testimonials</h2>", unsafe_allow_html=True)
         st.markdown(
             """
-            <div style="background-color: #E6F0F2; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+            <div style="background-color: #F0F0F0; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <p style="font-style: italic; color: #555555;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
                 <p style="text-align: right; font-weight: bold; color: #555555;">- A.B., Patient</p>
             </div>
@@ -104,13 +82,13 @@ def show_home_page():
         )
 
     with col3:
-        st.header("Featured News")
+        st.markdown("<h2 style='color:#9370DB;'>Featured News</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="color: #555555;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <br>
-                <h4 style='color: #008080;'>Featured News</h4>
+                <h4 style='color: #40E0D0;'>Featured News</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             """, unsafe_allow_html=True
@@ -120,61 +98,57 @@ def show_home_page():
 # --- Main App Logic ---
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS for a professional look with background image and logo
+# Custom CSS for a professional look with a background image
 st.markdown("""
 <style>
-    /* Global Background Color and Image */
-    body {
-        background-color: #F0F8FF; /* Fallback color */
-        background-image: url("https://images.unsplash.com/photo-1549414002-3642732997d0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    /* Main app container with a background image */
+    [data-testid="stAppViewContainer"] {
+        background: url("https://images.unsplash.com/photo-1549414002-3642732997d0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
     }
-
-    /* Streamlit container styling */
-    [data-testid="stAppViewContainer"] {
-        background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
-        backdrop-filter: blur(10px); /* Blur effect to make it more appealing */
+    
+    /* Content container to create a layered effect */
+    [data-testid="stVerticalBlock"] {
+        background: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+        backdrop-filter: blur(8px); /* Blur effect */
         border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 2rem;
     }
-    
+
     /* Logo and Header Styling */
-    .logo {{
+    .logo {
         font-size: 2rem;
         font-weight: bold;
-        color: #008080;
-    }}
-    
-    /* Text and Heading Colors */
-    h1, h2, h3, h4 {{
-        color: #008080;
-    }}
-    p, a, div, span, li, ul, pre {{
+        color: #9370DB;
+    }
+
+    /* General text and heading colors */
+    h1, h2, h3, h4 {
+        color: #9370DB;
+    }
+    p, a, div, span, li, ul, pre {
         color: #555555;
-    }}
-    
-    /* Button Styles */
-    .stButton>button {{
-        background-color: #008080;
+    }
+
+    /* Button styles */
+    .stButton>button {
+        background-color: #9370DB;
         color: white;
         border-radius: 8px;
         border: none;
         padding: 10px 20px;
         transition: all 0.2s ease-in-out;
-    }}
-    .stButton>button:hover {{
-        background-color: #3CB371;
+    }
+    .stButton>button:hover {
+        background-color: #40E0D0;
         transform: scale(1.05);
-    }}
-
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# Top navigation with Logo
+# Top navigation with a logo
 st.markdown(
     """
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
@@ -195,7 +169,7 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #008080;'>
+    <p style='color: #9370DB;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
