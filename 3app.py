@@ -1,4 +1,4 @@
-mport streamlit as st
+import streamlit as st
 
 # Set the page configuration for a wide, clean layout
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide")
