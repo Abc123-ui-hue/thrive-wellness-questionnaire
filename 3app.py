@@ -179,3 +179,4 @@ st.markdown("""
         Always seek the advice of a qualified healthcare professional with any questions regarding a medical condition.
     </p>
 </div>
+""", unsafe_allow_html=True)
