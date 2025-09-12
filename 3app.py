@@ -3,9 +3,17 @@ import streamlit as st
 # Set the page configuration for a wide, clean layout
 st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide")
 
-# Custom CSS for a clean, minimalist look with a new color palette
+# Custom CSS for a clean, professional look with the exact color palette from the image
 st.markdown("""
 <style>
+    /* Color Variables from Image */
+    :root {
+        --primary-blue: #007BFF;
+        --secondary-blue: #E6F0FF;
+        --text-dark: #2F4F4F;
+        --text-light-gray: #4A4A4A;
+    }
+
     /* General styles for a professional look */
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -35,16 +43,37 @@ st.markdown("""
     }
 
     h1, h2, h3, h4 {
-        color: #2F4F4F; /* Dark Slate Gray */
+        color: var(--text-dark);
         font-family: "Segoe UI", sans-serif;
+        font-weight: 600;
     }
     p, a, span, li {
-        color: #4A4A4A; /* Slightly lighter gray for text */
+        color: var(--text-light-gray);
         font-family: "Segoe UI", sans-serif;
         line-height: 1.6;
     }
+    
+    .hero-section {
+        background-color: var(--secondary-blue);
+        border-radius: 12px;
+        padding: 3rem 4rem;
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 5rem;
+    }
+
+    .hero-text-container {
+        flex: 2;
+    }
+
+    .hero-image-container {
+        flex: 1;
+        text-align: center;
+    }
+
     .stButton > button {
-        background-color: #007BFF;
+        background-color: var(--primary-blue);
         color: white;
         border: none;
         border-radius: 8px;
@@ -57,20 +86,13 @@ st.markdown("""
         background-color: #0056b3;
         transform: translateY(-2px);
     }
-    a {
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .footer {
-        text-align: center;
-        padding-top: 20px;
-        margin-top: 40px;
-        border-top: 1px solid #ddd;
-        font-size: 0.9rem;
-        color: #777;
-    }
-    .hero-container {
-        padding: 4rem 0;
+    .header-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+        font-size: 1.1rem;
+        padding-top: 10px;
     }
     .service-card {
         text-align: center;
@@ -79,22 +101,21 @@ st.markdown("""
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         margin-bottom: 25px;
         background-color: #FFFFFF;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .service-card h4 {
         margin-top: 15px;
-        color: #007BFF;
+        color: var(--primary-blue);
     }
     .service-card p {
         font-size: 0.9rem;
     }
-    .st-info {
-        background-color: #E6F0FF;
-        border-left: 5px solid #007BFF;
-        padding: 15px;
-        border-radius: 8px;
-    }
     .contact-card {
-        background-color: #007BFF;
+        background-color: var(--primary-blue);
         color: white;
         padding: 30px;
         border-radius: 12px;
@@ -106,8 +127,16 @@ st.markdown("""
     }
     .contact-card .stButton > button {
         background-color: white;
-        color: #007BFF;
+        color: var(--primary-blue);
         font-size: 1.2rem;
+    }
+    .footer {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 40px;
+        border-top: 1px solid #ddd;
+        font-size: 0.9rem;
+        color: #777;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -116,45 +145,49 @@ st.markdown("""
 with st.container():
     nav_col1, nav_col2 = st.columns([1, 2])
     with nav_col1:
-        st.markdown('<span style="font-size: 2rem; font-weight: bold; color: #007BFF;">Thrive</span><span style="font-size: 2rem; color: #4A4A4A;"> Mental Wellness</span>', unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <span style="font-size: 2rem; font-weight: bold; color: {st.get_option('theme.primaryColor')}">Thrive</span><span style="font-size: 2rem; color: #4A4A4A;"> Mental Wellness</span>
+            """, unsafe_allow_html=True)
     with nav_col2:
         st.markdown(
             """
-            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 30px; font-size: 1.1rem; padding-top: 10px;">
+            <div class="header-nav">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
                 <div class="stButton">
-                    <button style="background-color: #007BFF; color: white;">Get Started</button>
+                    <button>Get Started</button>
                 </div>
             </div>
             """, unsafe_allow_html=True
         )
+st.markdown("---")
 
-# Hero Section with two columns
-hero_col1, hero_col2 = st.columns([2, 1])
-
-with hero_col1:
-    st.markdown("<div class='hero-container'>", unsafe_allow_html=True)
-    st.markdown('<h1 style="font-size: 3.5rem; color: #2F4F4F;">Your Mental Health Matters</h1>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size: 1.2rem; color: #4A4A4A;">Compassionate mental health care for your well-being.</p>', unsafe_allow_html=True)
-    st.markdown(
-        """
-        <div style="margin-top: 2.5rem;">
-            <a href="#" class="stButton"><button>Book an Appointment</button></a>
-        </div>
-        """, unsafe_allow_html=True
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
-
-with hero_col2:
-    st.image("https://images.unsplash.com/photo-1559114755-325b3952a1b9?q=80&w=2836&auto=format&fit=crop", width=350)
-    st.markdown(
-        """
-        <p style="text-align: center; margin-top: 10px; font-weight: bold; color: #4A4A4A;">Cecilia Wamburu PMHNP-BC</p>
-        """, unsafe_allow_html=True
-    )
+# Hero Section
+with st.container():
+    hero_col1, hero_col2 = st.columns([2, 1])
+    with hero_col1:
+        st.markdown(
+            """
+            <div class="hero-text-container">
+                <h1 style="font-size: 3.5rem; color: var(--text-dark);">Your Mental Health Matters</h1>
+                <p style="font-size: 1.2rem; color: var(--text-light-gray);">Compassionate mental health care for your well-being.</p>
+                <div style="margin-top: 2.5rem;">
+                    <a href="#" class="stButton"><button>Book an Appointment</button></a>
+                </div>
+            </div>
+            """, unsafe_allow_html=True
+        )
+    with hero_col2:
+        st.markdown(
+            """
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1559114755-325b3952a1b9?q=80&w=2836&auto=format&fit=crop" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);" />
+            </div>
+            """, unsafe_allow_html=True
+        )
 st.markdown("---")
 
 # Our Services Section
