@@ -12,7 +12,7 @@ st.set_page_config(
 # This uses st.markdown to inject custom CSS for a more polished look
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display
     
     html, body, [class*="st-emotion-cache"] {
         font-family: 'Inter', sans-serif;
@@ -145,7 +145,7 @@ with st.container():
         <div class="hero-section">
             <h1 class="hero-title">Your Compelling Headline Here</h1>
             <p class="hero-subtitle">
-                A short and powerful sub-headline that explains what you do and why it matters.
+                A short and powerful sub-headline that explains what you do and why it matte
             </p>
             <a href="#" class="hero-button">Get Started</a>
         </div>
@@ -153,17 +153,17 @@ with st.container():
 
 # --- Main Content (Key Features) ---
 st.container()
-st.markdown("<h2 style='text-align: center; font-size: 1.875rem; font-weight: 700; margin-top: 3rem; color: #1f2937;'>Key Features</h2>", unsafe_allow_html=True)
-st.markdown("<div style='display: flex; justify-content: space-around; gap: 2rem; padding: 2rem 0; flex-wrap: wrap;'>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; font-size: 1.875rem; font-weight: 700; margin-to
+st.markdown("<div style='display: flex; justify-content: space-around; gap: 2rem; padding: 2
 
 # Feature Card 1
 st.markdown("""
     <div class="feature-card">
         <div class="feature-icon-box">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674m-4.674 0L15 20m-5.337-3h4.674m-4.674 0L9.663 17"></path></svg>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
         </div>
         <h3 class="feature-title">Feature One</h3>
-        <p class="feature-description">Describe a key benefit or feature of your product or service here.</p>
+        <p class="feature-description">Describe a key benefit or feature of your product or 
     </div>
 """, unsafe_allow_html=True)
 
@@ -171,10 +171,10 @@ st.markdown("""
 st.markdown("""
     <div class="feature-card">
         <div class="feature-icon-box">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
         </div>
         <h3 class="feature-title">Feature Two</h3>
-        <p class="feature-description">Explain another important aspect that makes your offering unique.</p>
+        <p class="feature-description">Explain another important aspect that makes your offe
     </div>
 """, unsafe_allow_html=True)
 
@@ -182,10 +182,50 @@ st.markdown("""
 st.markdown("""
     <div class="feature-card">
         <div class="feature-icon-box">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.5 3-4.5s-1.343-4.5-3-4.5S9 12 9 12s1.343 4.5 3 4.5z"></path></svg>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
         </div>
         <h3 class="feature-title">Feature Three</h3>
-        <p class="feature-description">A final description to showcase your value proposition to customers.</p>
+        <p class="feature-description">A final description to showcase your value propositio
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+# --- Our Services Section ---
+st.markdown("---")
+st.markdown("<h2 style='text-align: center; font-size: 1.875rem; font-weight: 700; margin-to
+st.markdown("<div style='display: flex; justify-content: space-around; gap: 2rem; padding: 2
+
+# Service Card 1
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
+        </div>
+        <h3 class="feature-title">Service One</h3>
+        <p class="feature-description">Detail your first service offering, explaining how it
+    </div>
+""", unsafe_allow_html=True)
+
+# Service Card 2
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
+        </div>
+        <h3 class="feature-title">Service Two</h3>
+        <p class="feature-description">Describe a second service, highlighting its key featu
+    </div>
+""", unsafe_allow_html=True)
+
+# Service Card 3
+st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon-box">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns
+        </div>
+        <h3 class="feature-title">Service Three</h3>
+        <p class="feature-description">Provide a clear explanation of your third service and
     </div>
 """, unsafe_allow_html=True)
 
