@@ -7,14 +7,15 @@ def show_home_page():
         """
         <style>
             .hero-container {
-                display: flex;
-                align-items: center;
-                background-color: #2D3E50;
-                color: white;
+                background-color: white;
+                color: #2D3E50;
                 padding: 4rem 2rem;
                 border-radius: 12px;
                 margin-bottom: 2rem;
+                display: flex;
+                align-items: center;
                 gap: 2rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             }
             .hero-text {
                 flex: 2;
@@ -26,13 +27,12 @@ def show_home_page():
             .hero-image img {
                 max-width: 100%;
                 height: auto;
-                border-radius: 50%;
-                border: 5px solid white;
+                border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             }
             .staff-info {
                 background-color: #40E0D0;
-                color: #2D3E50;
+                color: white;
                 font-weight: bold;
                 padding: 0.5rem 1rem;
                 border-radius: 8px;
@@ -48,9 +48,10 @@ def show_home_page():
             .hero-subtitle {
                 font-size: 1.5rem;
                 margin-bottom: 2rem;
+                color: #555555;
             }
             .book-button, .contact-button {
-                background-color: #FFA500;
+                background-color: #40E0D0;
                 color: white;
                 font-weight: bold;
                 padding: 1rem 2rem;
@@ -61,7 +62,8 @@ def show_home_page():
             }
             .contact-button {
                 background-color: #2D3E50;
-                border: 2px solid white;
+                border: 2px solid #2D3E50;
+                color: white;
             }
         </style>
         <div class="hero-container">
@@ -129,17 +131,23 @@ st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", in
 # Custom CSS for a professional look with a background image
 st.markdown("""
 <style>
-    /* Main app container with a background image */
+    /* Full-page background color */
+    body {
+        background-color: #F7F9FC; /* Light gray to cover the entire page */
+    }
+
+    /* Target the main app container for the hero section background */
     [data-testid="stAppViewContainer"] {
-        background-color: #f8f8f8;
+        background-color: #F7F9FC;
     }
     
     /* Content container to create a layered effect */
-    [data-testid="stVerticalBlock"] {
+    .block-container {
         background: white;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 2rem;
+        margin-top: 2rem;
     }
 
     /* Logo and Header Styling */
