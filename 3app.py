@@ -7,7 +7,7 @@ def show_home_page():
         """
         <style>
             .hero-container {
-                background-image: linear-gradient(rgba(147, 112, 219, 0.6), rgba(64, 224, 208, 0.6)), url("https://images.unsplash.com/photo-1517487823907-77b312a06c85?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+                background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url("https://images.unsplash.com/photo-1579684307221-3677b1988975?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
                 background-size: cover;
                 background-position: center;
                 color: white;
@@ -55,7 +55,7 @@ def show_home_page():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("<h2 style='color:#9370DB;'>Medication Management</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#003366;'>Medication Management</h2>", unsafe_allow_html=True)
         st.markdown("<p style='color:#555555;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
@@ -71,7 +71,7 @@ def show_home_page():
         )
 
     with col2:
-        st.markdown("<h2 style='color:#9370DB;'>Testimonials</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#003366;'>Testimonials</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="background-color: #F0F0F0; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
@@ -82,7 +82,7 @@ def show_home_page():
         )
 
     with col3:
-        st.markdown("<h2 style='color:#9370DB;'>Featured News</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#003366;'>Featured News</h2>", unsafe_allow_html=True)
         st.markdown(
             """
             <div style="color: #555555;">
@@ -121,12 +121,12 @@ st.markdown("""
     .logo {
         font-size: 2rem;
         font-weight: bold;
-        color: #9370DB;
+        color: #003366;
     }
 
     /* General text and heading colors */
     h1, h2, h3, h4 {
-        color: #9370DB;
+        color: #003366;
     }
     p, a, div, span, li, ul, pre {
         color: #555555;
@@ -134,7 +134,7 @@ st.markdown("""
 
     /* Button styles */
     .stButton>button {
-        background-color: #9370DB;
+        background-color: #003366;
         color: white;
         border-radius: 8px;
         border: none;
@@ -169,7 +169,7 @@ show_home_page()
 # Footer Section
 st.markdown("""
 <div class="footer">
-    <p style='color: #9370DB;'>
+    <p style='color: #003366;'>
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
@@ -178,3 +178,4 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
