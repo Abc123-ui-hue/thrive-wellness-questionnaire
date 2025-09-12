@@ -4,13 +4,13 @@ import base64
 # --- Helper functions for multi-page app ---
 def show_home_page():
     # Top navigation bar
-    col_nav_spacer, col_nav_home, col_nav_login, col_nav_register = st.columns([2,
+    col_nav_spacer, col_nav_home, col_nav_login, col_nav_register = st.columns([2, 1, 1, 1])
     with col_nav_home:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Home</p>", unsafe_allow_html=True)
     with col_nav_login:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Login</p>", unsafe_allow_html=True)
     with col_nav_register:
-        st.markdown("<p style='text-align: center; font-weight: bold; color: white
+        st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Register</p>", unsafe_allow_html=True)
 
     # Hero Section with Two Columns and Image
     hero_container = st.container()
@@ -52,8 +52,8 @@ def show_home_page():
                 }}
                 </style>
                 <div class="hero-container">
-                    <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospi
-                    <p class="hero-subtitle">Your mental wellness is our priority.
+                    <h1 class="hero-title">Welcome to Thrive Mental Wellness Hospital</h1>
+                    <p class="hero-subtitle">Your mental wellness is our priority.</p>
                     <a href="#" class="book-button">Book Appointment</a>
                     <a href="#" class="contact-button">Contact Us</a>
                 </div>
@@ -71,8 +71,8 @@ def show_home_page():
                 }}
                 </style>
                 <div class="img-container">
-                    <img src="https://placehold.co/400x400/2c3e50/B8D8D3?text=Ceci
-                    <p style="text-align: center; color: white; margin-top: 10px;"
+                    <img src="https://placehold.co/400x400/2c3e50/B8D8D3?text=Cecilia+Wamburu" style="border-radius: 12px; display: block; margin: auto;">
+                    <p style="text-align: center; color: white; margin-top: 10px;">Cecilia Wamburu, PMHNP-BC</p>
                 </div>
                 """, unsafe_allow_html=True
             )
@@ -83,16 +83,16 @@ def show_home_page():
     
     with col1:
         st.header("Medication Management")
-        st.markdown("<p style='color: #CCCCCC;'>Psychotherapy</p>", unsafe_allow_h
+        st.markdown("<p style='color: #CCCCCC;'>Psychotherapy</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         
         st.markdown(
             """
             <div style="display: flex; gap: 10px;">
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/faceb
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/linke
-                <a href="#"><img src="https://img.icons8.com/color/48/000000/twitt
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" style="width: 32px; height: 32px;"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/linkedin.png" style="width: 32px; height: 32px;"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" style="width: 32px; height: 32px;"></a>
             </div>
             """, unsafe_allow_html=True
         )
@@ -101,9 +101,9 @@ def show_home_page():
         st.header("Testimonials")
         st.markdown(
             """
-            <div style="background-color: #2c3e50; padding: 15px; border-radius: 1
-                <p style="font-style: italic; color: #CCCCCC;">"Thrive has truly c
-                <p style="text-align: right; font-weight: bold; color: #CCCCCC;">-
+            <div style="background-color: #2c3e50; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+                <p style="font-style: italic; color: #CCCCCC;">"Thrive has truly changed my life. The support and care I received were exceptional."</p>
+                <p style="text-align: right; font-weight: bold; color: #CCCCCC;">- A.B., Patient</p>
             </div>
             """, unsafe_allow_html=True
         )
@@ -123,7 +123,7 @@ def show_home_page():
 
 
 # --- Main App Logic ---
-st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", init
+st.set_page_config(page_title="Thrive Mental Health Wellness", layout="wide", initial_sidebar_state="collapsed")
 
 # Custom CSS for a professional look
 st.markdown("""
@@ -171,8 +171,8 @@ st.markdown("""
         <br>
         © 2024 Thrive Mental Health Wellness. All rights reserved.
         <br>
-        <strong>Disclaimer:</strong> This website is for informational purposes on
-        Always seek the advice of a qualified healthcare professional with any que
+        <strong>Disclaimer:</strong> This website is for informational purposes only and does not provide medical advice.
+        Always seek the advice of a qualified healthcare professional with any questions regarding a medical condition.
     </p>
 </div>
 """, unsafe_allow_html=True)
