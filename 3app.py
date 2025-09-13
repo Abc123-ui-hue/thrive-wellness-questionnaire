@@ -72,84 +72,70 @@ if is_logged_in():
 
 else:
     # --- Home Page ---
-    def home_page():
-        st.title("Welcome to Thrive Wellness")
-        st.subheader("Your Partner in Health and Healing")
-        st.write("---")
+    st.title("Welcome to Thrive Wellness")
+    st.subheader("Your Partner in Health and Healing")
+    st.write("---")
 
-        col1, col2 = st.columns([1, 1])
+    col1, col2 = st.columns([1, 1])
 
-        with col1:
-            st.header("Medication Management")
-            st.write("Our expert team offers personalized medication management to ensure you receive the best care.")
-            st.button("Learn More about Medication Management")
+    with col1:
+        st.header("Medication Management")
+        st.write("Our expert team offers personalized medication management to ensure you receive the best care.")
+        st.button("Learn More about Medication Management")
 
-        with col2:
-            st.header("Psychotherapy")
-            st.write("We provide compassionate psychotherapy services to help you navigate life's challenges.")
-            st.button("Learn More about Psychotherapy")
+    with col2:
+        st.header("Psychotherapy")
+        st.write("We provide compassionate psychotherapy services to help you navigate life's challenges.")
+        st.button("Learn More about Psychotherapy")
 
-        st.write("---")
-        st.header("Meet Our Team")
-        st.write("Our dedicated staff is here to support you on your wellness journey.")
-        st.markdown("**Cecilia Wamburu**, **Director, Psychiatric Nurse Practitioner**")
-        st.write("Cecilia is passionate about providing holistic care and empowering individuals to achieve their full potential.")
+    st.write("---")
+    st.header("Meet Our Team")
+    st.write("Our dedicated staff is here to support you on your wellness journey.")
+    st.markdown("**Cecilia Wamburu**, **Director, Psychiatric Nurse Practitioner**")
+    st.write("Cecilia is passionate about providing holistic care and empowering individuals to achieve their full potential.")
 
-        st.write("---")
-        st.header("Testimonials")
-        st.write("*\"Thrive Wellness changed my life. I finally feel like myself again.\"* - A.B.")
-        st.write("*\"The staff is incredibly supportive and professional. I highly recommend them.\"* - C.D.")
+    st.write("---")
+    st.header("Testimonials")
+    st.write("*\"Thrive Wellness changed my life. I finally feel like myself again.\"* - A.B.")
+    st.write("*\"The staff is incredibly supportive and professional. I highly recommend them.\"* - C.D.")
 
-    # --- Services Page ---
-    def services_page():
-        st.title("Our Services")
-        st.write("---")
-        st.header("Mental Health Services")
-        st.write("We offer a range of services designed to support your mental and emotional well-being.")
-        st.subheader("Psychotherapy")
-        st.write("Individual, couples, and group therapy to address various mental health concerns.")
-        st.subheader("Medication Management")
-        st.write("Professional and personalized medication plans to complement your treatment.")
-        st.subheader("Telehealth")
-        st.write("Secure virtual appointments for convenient and accessible care.")
+    st.write("---")
+    # --- Services Section ---
+    st.title("Our Services")
+    st.write("---")
+    st.header("Mental Health Services")
+    st.write("We offer a range of services designed to support your mental and emotional well-being.")
+    st.subheader("Psychotherapy")
+    st.write("Individual, couples, and group therapy to address various mental health concerns.")
+    st.subheader("Medication Management")
+    st.write("Professional and personalized medication plans to complement your treatment.")
+    st.subheader("Telehealth")
+    st.write("Secure virtual appointments for convenient and accessible care.")
 
-    # --- About Us Page ---
-    def about_us_page():
-        st.title("About Us")
-        st.write("---")
-        st.header("Our Mission")
-        st.write("At Thrive Wellness, our mission is to provide compassionate, high-quality mental health care to our community. We believe in a holistic approach that treats the whole person.")
-        st.header("Our Philosophy")
-        st.write("We are committed to creating a safe and supportive environment where you can feel heard and understood. Our approach is collaborative and tailored to your unique needs.")
+    st.write("---")
+    # --- About Us Section ---
+    st.title("About Us")
+    st.write("---")
+    st.header("Our Mission")
+    st.write("At Thrive Wellness, our mission is to provide compassionate, high-quality mental health care to our community. We believe in a holistic approach that treats the whole person.")
+    st.header("Our Philosophy")
+    st.write("We are committed to creating a safe and supportive environment where you can feel heard and understood. Our approach is collaborative and tailored to your unique needs.")
 
-    # --- Contact Us Page ---
-    def contact_us_page():
-        st.title("Contact Us")
-        st.write("---")
-        st.write("Have a question? Fill out the form below or give us a call.")
+    st.write("---")
+    # --- Contact Us Section ---
+    st.title("Contact Us")
+    st.write("---")
+    st.write("Have a question? Fill out the form below or give us a call.")
 
-        with st.form(key='contact_form'):
-            name = st.text_input("Your Name")
-            email = st.text_input("Your Email")
-            message = st.text_area("Your Message")
-            submit_button = st.form_submit_button(label='Send Message')
-            if submit_button:
-                st.success("Your message has been sent (simulated).")
+    with st.form(key='contact_form'):
+        name = st.text_input("Your Name")
+        email = st.text_input("Your Email")
+        message = st.text_area("Your Message")
+        submit_button = st.form_submit_button(label='Send Message')
+        if submit_button:
+            st.success("Your message has been sent (simulated).")
 
     # --- Main Navigation and Authentication Forms ---
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home", "Services", "About Us", "Contact Us"])
-
-    if page == "Home":
-        home_page()
-    elif page == "Services":
-        services_page()
-    elif page == "About Us":
-        about_us_page()
-    elif page == "Contact Us":
-        contact_us_page()
-
-    st.sidebar.write("---")
     st.sidebar.title("Access Portals")
     login_mode = st.sidebar.radio("Select Portal", ["Login", "Register"])
 
