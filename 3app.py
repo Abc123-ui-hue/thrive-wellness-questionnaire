@@ -2,7 +2,7 @@ import streamlit as st
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="Thrive Medical Center",
+    page_title="Thrive Mental Wellness",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -10,7 +10,7 @@ st.set_page_config(
 # --- Custom CSS for Styling ---
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
     html, body, [class*="st-emotion-cache"] {
         font-family: 'Inter', sans-serif;
@@ -31,11 +31,13 @@ st.markdown("""
         position: sticky;
         top: 0;
         z-index: 100;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
     .logo {
-        font-size: 2.5rem; /* Increased size */
-        font-weight: 800; /* Bolder font weight */
-        color: #4f46e5; /* New color */
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #4f46e5;
         text-decoration: none;
     }
     .nav-links {
@@ -55,14 +57,15 @@ st.markdown("""
     /* Hero Section */
     .hero-container {
         position: relative;
-        background-color: #f0f4f8;
+        background-color: #eef2ff;
         padding: 5rem 2rem;
         border-radius: 10px;
         text-align: center;
         overflow: hidden;
+        margin-top: 1rem;
     }
     .hero-title {
-        font-size: 4rem; /* Increased size */
+        font-size: 4rem;
         font-weight: 700;
         color: #1a237e;
         margin-bottom: 0.5rem;
@@ -78,7 +81,7 @@ st.markdown("""
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
-        margin-top: -50px; /* Overlaps with the hero section */
+        margin-top: -50px;
         position: relative;
         z-index: 10;
     }
@@ -145,6 +148,91 @@ st.markdown("""
         line-height: 1.6;
     }
     
+    /* Featured Staff Section */
+    .staff-section {
+        margin-top: 5rem;
+        text-align: center;
+    }
+    .staff-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a237e;
+        margin-bottom: 2rem;
+    }
+    .staff-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+    .staff-photo {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    .staff-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a237e;
+    }
+    .staff-credentials {
+        font-size: 1rem;
+        color: #4f46e5;
+        margin-bottom: 0.5rem;
+    }
+    .staff-bio {
+        color: #4a5568;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        background-color: #eef2ff;
+        padding: 4rem 2rem;
+        margin-top: 5rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .testimonial-quote {
+        font-style: italic;
+        color: #4a5568;
+        font-size: 1.25rem;
+    }
+    .testimonial-author {
+        margin-top: 1rem;
+        font-weight: 600;
+        color: #1a237e;
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+        margin-top: 5rem;
+        text-align: center;
+        background-color: #4f46e5;
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 10px;
+    }
+    .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .cta-button {
+        background-color: white;
+        color: #4f46e5;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .cta-button:hover {
+        background-color: #eef2ff;
+    }
+
     /* Footer */
     .footer {
         background-color: #1a237e;
@@ -152,6 +240,8 @@ st.markdown("""
         padding: 2rem;
         text-align: center;
         margin-top: 5rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     .footer p {
         margin: 0;
@@ -162,10 +252,10 @@ st.markdown("""
 # --- Header Section ---
 st.markdown("""
 <div class="header">
-    <div class="logo">Thrive Medical Center</div>
+    <a href="#" class="logo">Thrive Mental Wellness</a>
     <div class="nav-links">
         <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">About Us</a>
         <a href="#" class="nav-link">Services</a>
         <a href="#" class="nav-link">Contact</a>
     </div>
@@ -175,25 +265,27 @@ st.markdown("""
 # --- Hero Section ---
 st.markdown("""
 <div class="hero-container">
-    <h1 class="hero-title">Your Health, Our Priority</h1>
-    <p class="hero-subtitle">Comprehensive and compassionate care for a healthier you. We are here for you.</p>
-</div>
-""", unsafe_allow_html=True)
-
-# --- Floating Stats ---
-st.markdown("""
-<div class="stats-card-container">
-    <div class="stats-card">
-        <div class="stats-number">50+</div>
-        <div class="stats-text">Expert Doctors</div>
-    </div>
-    <div class="stats-card">
-        <div class="stats-number">20+</div>
-        <div class="stats-text">Specialized Services</div>
-    </div>
-    <div class="stats-card">
-        <div class="stats-number">10k+</div>
-        <div class="stats-text">Happy Patients</div>
+    <h1 class="hero-title">A Space for Your Healing</h1>
+    <p class="hero-subtitle">Compassionate and evidence-based mental healthcare for a healthier you.</p>
+    <div style="margin-top: 2rem;">
+        <a href="#" style="
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1rem;
+        ">Book Appointment</a>
+        <a href="#" style="
+            background-color: #ffffff;
+            color: #4f46e5;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #4f46e5;
+        ">Contact Us</a>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -201,50 +293,74 @@ st.markdown("""
 # --- Services Section ---
 st.markdown("""
 <div class="services-container">
-    <h2 class="services-title">Our Specialized Services</h2>
+    <h2 class="services-title">Our Services</h2>
     <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-        <div class="service-card" style="flex-basis: 300px;">
+        <div class="service-card" style="flex-basis: 350px;">
             <div class="service-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                  <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 4.06l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clip-rule="evenodd" />
-                  <path fill-rule="evenodd" d="M12 5.25v7.5a.75.75 0 0 1-1.5 0V5.25a.75.75 0 0 1 1.5 0Z" clip-rule="evenodd" />
-                  <path d="m1.873 13.567 2.536 2.535a.75.75 0 0 0 1.06 0l2.493-2.492a.75.75 0 0 0-1.06-1.06L4.433 14.512l-1.92-1.921a.75.75 0 1 0-1.06 1.06Z" />
-                  <path d="M12.75 12.75V12a.75.75 0 0 1 1.5 0v.75h4.5a.75.75 0 0 1 .75.75v3.375a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1-.75-.75v-3.375ZM18 13.5h-4.5V12h4.5v1.5Z" />
-                  <path d="M12 15a.75.75 0 0 1 .75.75v3.375a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1-.75-.75v-3.375A.75.75 0 0 1 7.5 15H12Z" />
+                    <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 4.5a.75.75 0 0 1 .75.75V12h5.75a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75Z" />
                 </svg>
             </div>
-            <h3 class="service-title">General Check-ups</h3>
-            <p class="service-description">Regular health examinations to monitor your well-being and detect any issues early.</p>
+            <h3 class="service-title">Medication Management</h3>
+            <p class="service-description">Personalized medication plans for anxiety, depression, bipolar disorder, and other complex mental health issues. We focus on finding the right balance for your well-being.</p>
         </div>
-        <div class="service-card" style="flex-basis: 300px;">
+        <div class="service-card" style="flex-basis: 350px;">
             <div class="service-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                  <path d="M7.5 2.25c-.75 0-1.5.75-1.5 1.5v16.5c0 .75.75 1.5 1.5 1.5h9c.75 0 1.5-.75 1.5-1.5V3.75c0-.75-.75-1.5-1.5-1.5h-9ZM9 6a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6.75a.75.75 0 0 1 .75-.75ZM9 9.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V10.5a.75.75 0 0 1 .75-.75ZM9 13.5a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75ZM9 17.25a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75ZM15 6a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6.75a.75.75 0 0 1 .75-.75ZM15 9.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V10.5a.75.75 0 0 1 .75-.75ZM15 13.5a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75ZM15 17.25a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Z" />
+                    <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 4.5a.75.75 0 0 1 .75.75V12h5.75a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75Z" />
                 </svg>
             </div>
-            <h3 class="service-title">Specialized Treatments</h3>
-            <p class="service-description">Advanced diagnostic and treatment options for complex health conditions.</p>
-        </div>
-        <div class="service-card" style="flex-basis: 300px;">
-            <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                  <path d="M18.75 12.75h-12a.75.75 0 0 1 0-1.5h12a.75.75 0 0 1 0 1.5Z" />
-                  <path d="M6.75 15.75a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5h-1.5Z" />
-                  <path d="M12.75 15.75h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5Z" />
-                  <path d="M12.75 18.75a.75.75 0 0 1 0-1.5h3a.75.75 0 0 1 0 1.5h-3Z" />
-                  <path fill-rule="evenodd" d="M18 3.75c.981 0 1.764.57 2.023 1.341a.75.75 0 0 1 .286.993c-.412.825-.935 1.63-1.564 2.413A17.926 17.926 0 0 0 12 10.5a17.926 17.926 0 0 0-4.495 1.997c-.629-.783-1.152-1.588-1.564-2.413a.75.75 0 0 1 .286-.993C4.236 4.32 5.019 3.75 6 3.75h12ZM6 3.75v16.5A.75.75 0 0 0 6.75 21h10.5a.75.75 0 0 0 .75-.75V3.75h-12Z" clip-rule="evenodd" />
-                </svg>
-            </div>
-            <h3 class="service-title">Preventative Care</h3>
-            <p class="service-description">Focus on maintaining your health and preventing illness with our preventative programs.</p>
+            <h3 class="service-title">Psychotherapy</h3>
+            <p class="service-description">Individual, group, and family therapy sessions with a focus on evidence-based practices like CBT and DBT to help you navigate life's challenges.</p>
         </div>
     </div>
+</div>
+""", unsafe_allow_html=True)
+
+# --- Featured Staff Section ---
+st.markdown("""
+<div class="staff-section">
+    <h2 class="staff-title">Meet Our Founder</h2>
+    <div style="display: flex; justify-content: center;">
+        <div class="staff-card" style="flex-basis: 400px;">
+            <img src="https://placehold.co/150x150/eef2ff/4f46e5?text=Staff+Photo" class="staff-photo">
+            <h3 class="staff-name">Cecilia Wamburu</h3>
+            <p class="staff-credentials">Psychiatric Mental Health Nurse Practitioner (PMHNP-BC)</p>
+            <p class="staff-bio">Cecilia is a dedicated and compassionate PMHNP with a passion for helping individuals achieve mental wellness. She brings a wealth of experience in managing complex mental health issues through a blend of medication and therapy.</p>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# --- Testimonials Section ---
+st.markdown("""
+<div class="testimonials-section">
+    <h2 class="services-title" style="color: #1a237e;">What Our Patients Say</h2>
+    <div style="display: flex; justify-content: center;">
+        <div style="max-width: 800px;">
+            <p class="testimonial-quote">“Thrive Mental Wellness gave me a fresh start. The support and guidance I received was life-changing. Highly recommend.”</p>
+            <p class="testimonial-author">- A.B., Patient</p>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# --- Final Call to Action ---
+st.markdown("""
+<div class="cta-section">
+    <h2 class="cta-title">Ready to Begin Your Journey?</h2>
+    <p style="margin-bottom: 1.5rem;">Take the first step towards a healthier, happier you.</p>
+    <a href="#" class="cta-button">Book Your Appointment Now</a>
 </div>
 """, unsafe_allow_html=True)
 
 # --- Footer ---
 st.markdown("""
 <div class="footer">
-    <p>&copy; 2024 Thrive Medical Center. All Rights Reserved.</p>
+    <p>&copy; 2024 Thrive Mental Wellness. All Rights Reserved.</p>
+    <div style="margin-top: 1rem;">
+        <a href="#" style="color: white; margin: 0 0.5rem;">Privacy Policy</a> |
+        <a href="#" style="color: white; margin: 0 0.5rem;">Terms of Service</a>
+    </div>
 </div>
 """, unsafe_allow_html=True)
