@@ -3,6 +3,18 @@ import streamlit as st
 # Set a responsive page layout
 st.set_page_config(layout="wide")
 
+# Inject custom CSS for a background color
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f2f6;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # --- Function to check if a user is logged in (placeholder) ---
 def is_logged_in():
     """Placeholder function to simulate login state."""
@@ -161,4 +173,3 @@ else:
                 if new_password == confirm_password:
                     register_user(new_email, new_password, role)
                 else:
-                    st.error("Passwords do not match.")
