@@ -83,7 +83,7 @@ if is_logged_in():
         admin_dashboard()
 
 else:
-    # --- Home Page ---
+    # --- Home Page: Hero Section and Services Overview ---
     st.title("Welcome to Thrive Wellness")
     st.subheader("Your Partner in Health and Healing")
     st.write("---")
@@ -101,39 +101,56 @@ else:
         st.button("Learn More about Psychotherapy")
 
     st.write("---")
+
+    # --- Meet Our Team Section ---
     st.header("Meet Our Team")
     st.write("Our dedicated staff is here to support you on your wellness journey.")
     st.markdown("**Cecilia Wamburu**, **Director, Psychiatric Nurse Practitioner**")
     st.write("Cecilia is passionate about providing holistic care and empowering individuals to achieve their full potential.")
 
     st.write("---")
+    
+    # --- Testimonials Section ---
     st.header("Testimonials")
     st.write("*\"Thrive Wellness changed my life. I finally feel like myself again.\"* - A.B.")
     st.write("*\"The staff is incredibly supportive and professional. I highly recommend them.\"* - C.D.")
 
     st.write("---")
-    # --- Services Section ---
+    
+    # --- Our Services Section ---
     st.title("Our Services")
     st.write("---")
-    st.header("Mental Health Services")
-    st.write("We offer a range of services designed to support your mental and emotional well-being.")
-    st.subheader("Psychotherapy")
-    st.write("Individual, couples, and group therapy to address various mental health concerns.")
-    st.subheader("Medication Management")
-    st.write("Professional and personalized medication plans to complement your treatment.")
-    st.subheader("Telehealth")
-    st.write("Secure virtual appointments for convenient and accessible care.")
+    
+    col1_services, col2_services = st.columns([1, 1])
+    with col1_services:
+        st.header("Mental Health Services")
+        st.write("We offer a range of services designed to support your mental and emotional well-being.")
+    with col2_services:
+        st.write("") # Just for spacing
+        st.subheader("Psychotherapy")
+        st.write("Individual, couples, and group therapy to address various mental health concerns.")
+        st.subheader("Medication Management")
+        st.write("Professional and personalized medication plans to complement your treatment.")
+        st.subheader("Telehealth")
+        st.write("Secure virtual appointments for convenient and accessible care.")
 
     st.write("---")
+    
     # --- About Us Section ---
     st.title("About Us")
     st.write("---")
-    st.header("Our Mission")
-    st.write("At Thrive Wellness, our mission is to provide compassionate, high-quality mental health care to our community. We believe in a holistic approach that treats the whole person.")
-    st.header("Our Philosophy")
-    st.write("We are committed to creating a safe and supportive environment where you can feel heard and understood. Our approach is collaborative and tailored to your unique needs.")
+    
+    col1_about, col2_about = st.columns([1, 1])
+    with col1_about:
+        st.header("Our Mission")
+        st.write("At Thrive Wellness, our mission is to provide compassionate, high-quality mental health care to our community. We believe in a holistic approach that treats the whole person.")
+        st.header("Our Philosophy")
+        st.write("We are committed to creating a safe and supportive environment where you can feel heard and understood. Our approach is collaborative and tailored to your unique needs.")
+    with col2_about:
+        st.write("") # For alignment and spacing
 
     st.write("---")
+    
     # --- Contact Us Section ---
     st.title("Contact Us")
     st.write("---")
@@ -173,3 +190,4 @@ else:
                 if new_password == confirm_password:
                     register_user(new_email, new_password, role)
                 else:
+                    st.error("Passwords do not match.")
