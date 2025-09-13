@@ -3,16 +3,27 @@ import firebase_admin
 from firebase_admin import credentials, auth, firestore
 
 # --- Firebase Initialization ---
-# This part of the code is for demonstration. In a real application,
-# you would securely load your Firebase credentials.
+# To use Firebase in your Streamlit Cloud app, you need to create a `secrets.toml` file.
+# The content of this file should look like this:
+# [firebase]
+# type = "service_account"
+# project_id = "your-project-id"
+# private_key_id = "your-private-key-id"
+# private_key = "your-private-key"
+# client_email = "your-client-email"
+# client_id = "your-client-id"
+# auth_uri = "https://accounts.google.com/o/oauth2/auth"
+# token_uri = "https://oauth2.googleapis.com/token"
+# auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
+# client_x509_cert_url = "your-client-x509-cert-url"
+
 if not firebase_admin._apps:
-    # Use the provided global variables for Firebase configuration
     try:
-        firebase_config = st.secrets["firebase_config"]
-        cred = credentials.Certificate(firebase_config)
+        # Load Firebase credentials from Streamlit secrets
+        cred = credentials.Certificate(st.secrets["firebase"])
         firebase_admin.initialize_app(cred)
-    except:
-        st.error("Firebase credentials not found. Please add them to your Streamlit secrets.")
+    except Exception as e:
+        st.error(f"Error initializing Firebase. Please ensure your Firebase secrets are configured correctly. Error: {e}")
         st.stop()
 
 db = firestore.client()
